@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Text;
 
 namespace PracticeQuestionsSharp
 {
@@ -27,6 +28,16 @@ namespace PracticeQuestionsSharp
             watch.Stop();
 
             return result;
+        }
+    }
+
+    public static class Helper
+    {
+        public static string SortString(string s)
+        {
+            char[] chars = s.ToArray();
+            Array.Sort(chars);
+            return new string(chars);
         }
     }
 
@@ -128,6 +139,64 @@ namespace PracticeQuestionsSharp
         }
     }
 
+    //Check if a string is made of distinct characters
+    class Unique
+    {
+        public static bool IsUnique(string s)
+        {
+            Dictionary<char, char> dict = new Dictionary<char, char>();
+
+            foreach (char c in s)
+            {
+                if (!dict.TryAdd(c, c)) return false;
+            }
+
+            return true;
+        }
+
+        //Using no data structures
+        public static bool IsUnique2(string s)
+        {
+            s = Helper.SortString(s);
+
+            for (int i = 0; i < s.Length - 1; ++i)
+            {
+                if (s[i] == s[i + 1])
+                {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+    }
+
+    class Palindrome
+    {
+        //Determine whether a string is a permutation of a palindrom
+        public static bool IsPalindromePermutation(string s)
+        {
+            int singleCharCount = 0;
+            s = Helper.SortString(s).ToLower();
+
+            for (int i = 0; i < s.Length; ++i)
+            {
+                if (i + 1 >= s.Length) break;
+                Console.WriteLine($"Comparing {s[i]} and {s[i + 1]}");
+
+                if (s[i] == s[i + 1]) i++;    //we can ignore the next character because it has a pair
+                else
+                {
+                    singleCharCount++;
+                    if (singleCharCount > 0 && s.Length % 2 == 0) return false; //cannot have unpaired character in an even length palindrome
+                    if (singleCharCount > 1 && s.Length % 2 == 1) return false; //odd length palindromes have a single unpaired character
+                }
+            }
+
+            return true;
+        }
+    }
+
     class Program
     {
         public static void Main()
@@ -142,8 +211,29 @@ namespace PracticeQuestionsSharp
             */
 
             //Primes
+            /*
             Profiler.ProfileAndExecute(() => Prime.PrimesToN1(2000000));
             Profiler.ProfileAndExecute(() => Prime.PrimesToN2(2000000));
+            */
+
+            //Unique string
+            /*
+            StringBuilder sb = new StringBuilder();
+            for (char c = '0'; c < 127; ++c)
+            {
+                sb.Append(c);
+            }
+
+            string input = sb.ToString();
+            Console.WriteLine(input);
+            //input += '0';
+
+            Profiler.ProfileAndExecute(() => Unique.IsUnique(input));
+            Profiler.ProfileAndExecute(() => Unique.IsUnique2(input));
+            */
+
+            //Palindrome permutation
+            Profiler.ProfileAndExecute(() => Palindrome.IsPalindromePermutation("acdbdacbs"));
         }
     }
 }
