@@ -1,13 +1,25 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Reflection.Metadata.Ecma335;
 
+/*
+Doubly-linked list implementation
+
+Some methods allow passing nodes directly either for convenience or to decrease run time
+(deleting a node in the middle of the list is O(1) because of this (assuming you have a reference to it)).
+However passing a node from another list will result in weird behaviour so probably don't do it.
+*/
 namespace PracticeQuestionsSharp.DataStructures
 {
-    class LinkedList<T>
+    public class LinkedList<T>
     {
         public Node<T> Head { get; set; }
         public Node<T> Tail { get; set; }
+
+        public LinkedList()
+        {
+            Head = null;
+            Tail = null;
+        }
 
         public LinkedList(T data)
         {
@@ -17,7 +29,7 @@ namespace PracticeQuestionsSharp.DataStructures
 
         public Node<T> Add(T data)
         {
-            Node<T> n = Head;
+            Node<T> n = Tail;
             Node<T> newNode = new Node<T>(data);
 
             if (n == null)
@@ -28,9 +40,6 @@ namespace PracticeQuestionsSharp.DataStructures
                 return n;
             }
 
-            while (n.Next != null)
-                n = n.Next;
-
             n.Next = newNode;
             newNode.Prev = n;
             Tail = newNode;
@@ -38,51 +47,44 @@ namespace PracticeQuestionsSharp.DataStructures
             return newNode;
         }
 
-        //TODO: Add(Node<T> node) because I already have addbefore and addafter that take a node
-
-        public void Remove(T data)
+        public bool Remove(T data)
         {
             Node<T> n = Find(data);
-            if (n != null) RemoveNode(n);
+            return RemoveNode(n);
         }
 
-        public void RemoveNode(Node<T> node)
+        public bool RemoveNode(Node<T> node)
         {
-            Node<T> n = Head;
+            if (node == null) return false;
 
-            while (n != null && n != node)
-                n = n.Next;
-
-            if (n == null) return;
-
-            if (n.Next == null)
+            if (node.Next == null)
             {
-                if (n.Prev == null)
+                if (node.Prev == null)
                 {
                     Head = null;
                     Tail = null;
                 }
                 else
                 {
-                    Tail = n.Prev;
+                    Tail = node.Prev;
                     Tail.Next = null;
                 }
             }
             else
             {
-                if (n.Prev != null)
+                if (node.Prev != null)
                 {
-                    n.Prev.Next = n.Next;
-                    n.Next.Prev = n.Prev;
+                    node.Prev.Next = node.Next;
+                    node.Next.Prev = node.Prev;
                 }
                 else
                 {
-                    Head = n.Next;
+                    Head = node.Next;
                     Head.Prev = null;
                 }
             }
 
-            n = null;
+            return true;
         }
 
         //We don't use [] because we don't have array access performance
@@ -91,7 +93,9 @@ namespace PracticeQuestionsSharp.DataStructures
             Node<T> n = Head;
             int count = 0;
 
-            while (count != index && n?.Next != null)
+            if (n == null) return null;
+
+            while (count != index && n.Next != null)
             {
                 count++;
                 n = n.Next;
@@ -122,8 +126,6 @@ namespace PracticeQuestionsSharp.DataStructures
             return newNode;
         }
 
-        //Adding before a node from another list is unnexpected behaviour. 
-        //But it's a convenient method and I don't want to have to check if the list contains the node (too slow).
         public Node<T> AddBefore(T data, Node<T> node)
         {
             if (node == null) return null;
@@ -167,7 +169,6 @@ namespace PracticeQuestionsSharp.DataStructures
             return newNode;
         }
 
-        //Adding after a node from another list is unnexpected behaviour. 
         public Node<T> AddAfter(T data, Node<T> node)
         {
             if (node == null) return null;
@@ -255,7 +256,7 @@ namespace PracticeQuestionsSharp.DataStructures
         }
     }
 
-    class Node<T>
+    public class Node<T>
     {
         public T Data { get; set; }
         public Node<T> Next { get; set; }
