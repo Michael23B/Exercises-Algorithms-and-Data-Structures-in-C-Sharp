@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using PracticeQuestionsSharp.DataStructures;
 using PracticeQuestionsSharp.Exercises;
@@ -50,23 +51,32 @@ namespace PracticeQuestionsSharp
             list.Add(4);
 
             list.At(2).Data = 2;
-            list.Remove(list.Find(4));
-            list.Remove(list.At(0));
-            list.Remove(list.At(0));
-            list.Remove(list.At(0));
+            list.RemoveNode(list.Find(4));
+            list.RemoveNode(list.At(0));
+            list.RemoveNode(list.At(0));
+            list.RemoveNode(list.At(0));
 
             list.Add(2);
             list.Add(22);
             list.Add(222);
             list.AddBefore(23, list.Find(222));
 
+            list.Print();
+
             list.Clear();
 
-            list.AddBefore(0, 0);
-            Console.WriteLine(list.Tail.Data);
-            list.AddBefore(-1, 0);
-
             list.Print();
+
+            list.AddBefore(0, 0);
+            list.AddBefore(-1, 0);
+            list.AddAfter(2, 0);
+            list.AddAfter(3, list.Find(2));
+
+            list.Print(true);
+
+            Console.WriteLine(list.Count());
+            var listFound = list.FindAll(x => x > 0);
+            foreach (var x in listFound) Console.WriteLine(x.Data);
         }
     }
 }
