@@ -54,7 +54,6 @@ namespace PracticeQuestionsSharp
 
             Profiler.ProfileAndExecute(() => list.RemoveNode(constantTimeCheck));
             Profiler.ProfileAndExecute(() => list.Remove(5000002));
-            //TODO: Add actual tests
 
             //Sum linked lists
             LinkedList<int> list1 = new LinkedList<int>(7);
@@ -65,19 +64,30 @@ namespace PracticeQuestionsSharp
             list2.Add(2);
             var list3 = SumLinkedLists.SumLists(list1, list2);
             list3.Print();
+            
+            //Remove linked list duplicates
+            LinkedList<int> dupeList = new LinkedList<int>(7);
+            dupeList.Add(7);
+            dupeList.Add(7);
+            dupeList.Add(1);
+            dupeList.Add(4);
+            dupeList.Add(1);
+            dupeList.Add(2);
+            dupeList.Add(7);
+
+            Console.WriteLine($"{dupeList.RemoveDuplicates()} items removed.");
+            dupeList.Print();
             */
+            //Loop detection
+            LinkedList<int> circularList = new LinkedList<int>(1);
+            circularList.Add(2);
+            circularList.Add(3);
+            circularList.Add(4);
+            circularList.Add(5);
 
-            LinkedList<int> list = new LinkedList<int>(7);
-            list.Add(7);
-            list.Add(7);
-            list.Add(1);
-            list.Add(4);
-            list.Add(1);
-            list.Add(2);
-            list.Add(7);
+            circularList.Tail.Next = circularList.Tail.Prev.Prev;
 
-            Console.WriteLine($"{list.RemoveDuplicates()} items removed.");
-            list.Print();
+            Profiler.ProfileAndExecute(() => circularList.DetectLoop().Data);
         }
     }
 }

@@ -492,5 +492,24 @@ namespace UnitTests
             Assert.AreEqual(8, list.Head.Next.Next.Next.Data);
             Assert.AreEqual(4, list.Head.Next.Next.Next.Next.Data);
         }
+
+        [TestMethod]
+        public void DetectLoop()
+        {
+            //Arrange
+            LinkedList<int> circularList = new LinkedList<int>(1);
+            circularList.Add(2);
+            circularList.Add(3);
+            circularList.Add(4);
+            circularList.Add(5);
+
+            circularList.Tail.Next = circularList.Tail.Prev.Prev;
+
+            //Act
+            Node<int> loopingNode = circularList.DetectLoop();
+
+            //Assert
+            Assert.AreEqual(5, loopingNode.Data);
+        }
     }
 }
