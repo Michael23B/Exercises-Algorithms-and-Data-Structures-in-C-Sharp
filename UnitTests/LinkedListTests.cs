@@ -1,12 +1,20 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using PracticeQuestionsSharp.DataStructures;
+using PracticeQuestionsSharp.Exercises;
 
 namespace UnitTests
 {
     class DummyClass
     {
-        public DummyClass() { dummyData = "data"; }
-        public string DummyMethod() { return "method"; }
+        public DummyClass()
+        {
+            dummyData = "data";
+        }
+
+        public string DummyMethod()
+        {
+            return "method";
+        }
 
         public string dummyData;
     }
@@ -79,6 +87,24 @@ namespace UnitTests
         }
 
         [TestMethod]
+        public void ListCountWithPredicate()
+        {
+            //Arrange
+            LinkedList<int> list = new LinkedList<int>(1);
+
+            //Act
+            list.Add(3);
+            list.Add(5);
+            list.Add(8);
+            list.Add(12);
+
+            //Assert
+            Assert.AreEqual(2, list.Count(x => x % 2 == 0));
+            Assert.AreEqual(3, list.Count(x => x % 2 == 1));
+            Assert.AreEqual(2, list.Count(x => x < 5));
+        }
+
+        [TestMethod]
         public void AddNewNodeWithData()
         {
             //Arrange
@@ -97,7 +123,7 @@ namespace UnitTests
         }
 
         [TestMethod]
-        public void AddNewNodeWithLotsOfData()
+        public void AddLotsOfNewNodesByData()
         {
             //Arrange
             LinkedList<int> list = new LinkedList<int>();
@@ -114,6 +140,95 @@ namespace UnitTests
         }
 
         [TestMethod]
+        public void AddNewNodeBeforeWithDataByIndex()
+        {
+            //Arrange
+            LinkedList<int> list = new LinkedList<int>();
+
+            //Act
+            list.Add(1);
+            list.AddBefore(2, 0);
+            list.AddBefore(3, 1);
+
+            //Assert
+            Assert.AreEqual(2, list.Head.Data);
+            Assert.AreEqual(3, list.Head.Next.Data);
+            Assert.AreEqual(1, list.Tail.Data);
+            Assert.AreEqual(3, list.Count());
+        }
+
+        [TestMethod]
+        public void AddNewNodeBeforeWithDataByNode()
+        {
+            //Arrange
+            LinkedList<int> list = new LinkedList<int>();
+
+            //Act
+            Node<int> node1 = list.Add(1);
+            Node<int> node2 = list.AddBefore(2, node1);
+            list.AddBefore(3, node2);
+
+            //Assert
+            Assert.AreEqual(3, list.Head.Data);
+            Assert.AreEqual(2, list.Head.Next.Data);
+            Assert.AreEqual(1, list.Tail.Data);
+            Assert.AreEqual(3, list.Count());
+        }
+
+        [TestMethod]
+        public void AddNewNodeAfterWithDataByIndex()
+        {
+            //Arrange
+            LinkedList<int> list = new LinkedList<int>();
+
+            //Act
+            list.Add(1);
+            list.AddAfter(2, 0);
+            list.AddAfter(3, 0);
+
+            //Assert
+            Assert.AreEqual(1, list.Head.Data);
+            Assert.AreEqual(3, list.Head.Next.Data);
+            Assert.AreEqual(2, list.Tail.Data);
+            Assert.AreEqual(3, list.Count());
+        }
+
+        [TestMethod]
+        public void AddNewNodeAfterWithDataByNode()
+        {
+            //Arrange
+            LinkedList<int> list = new LinkedList<int>();
+
+            //Act
+            Node<int> node1 = list.Add(1);
+            Node<int> node2 = list.AddAfter(2, node1);
+            list.AddAfter(3, node2);
+
+            //Assert
+            Assert.AreEqual(1, list.Head.Data);
+            Assert.AreEqual(2, list.Head.Next.Data);
+            Assert.AreEqual(3, list.Tail.Data);
+            Assert.AreEqual(3, list.Count());
+        }
+
+        [TestMethod]
+        public void AddingWithNullNodes()
+        {
+            //Arrange
+            LinkedList<int> list = new LinkedList<int>();
+
+            //Act
+            list.Add(1);
+            list.AddAfter(2, null);
+            list.AddBefore(3, null);
+
+            //Assert
+            Assert.AreEqual(1, list.Head.Data);
+            Assert.AreEqual(1, list.Tail.Data);
+            Assert.AreEqual(1, list.Count());
+        }
+
+        [TestMethod]
         public void RemoveNodeByData()
         {
             //Arrange
@@ -121,7 +236,7 @@ namespace UnitTests
             list.Add(1);
             list.Add(2);
             list.Add(3);
-            
+
             //Act
             list.Remove(2);
 
@@ -231,6 +346,151 @@ namespace UnitTests
             Assert.AreEqual(nodeAt2, nodeAt1.Next);
             Assert.IsNull(nodeAt0.Prev);
             Assert.IsNull(nodeAt2.Next);
+        }
+
+        [TestMethod]
+        public void FindByDataReturnsCorrectNode()
+        {
+            //Arrange
+            LinkedList<int> list = new LinkedList<int>();
+            list.Add(1);
+            list.Add(2);
+            list.Add(3);
+
+            //Act
+            Node<int> nodeFind0 = list.Find(0);
+            Node<int> nodeFind1 = list.Find(1);
+            Node<int> nodeFind2 = list.Find(2);
+            Node<int> nodeFind3 = list.Find(3);
+
+            //Assert
+            Assert.AreEqual(1, nodeFind1.Data);
+            Assert.AreEqual(2, nodeFind2.Data);
+            Assert.AreEqual(3, nodeFind3.Data);
+            Assert.AreEqual(nodeFind1, nodeFind2.Prev);
+            Assert.AreEqual(nodeFind3, nodeFind2.Next);
+            Assert.IsNull(nodeFind1.Prev);
+            Assert.IsNull(nodeFind3.Next);
+            Assert.IsNull(nodeFind0);
+        }
+
+        [TestMethod]
+        public void FindAllReturnsCorrectNodes()
+        {
+            //Arrange
+            LinkedList<int> list = new LinkedList<int>();
+            list.Add(1);
+            list.Add(2);
+            list.Add(3);
+
+            //Act
+            var resultsGreaterThanOne = list.FindAll(x => x > 1);
+            var resultsEqual1 = list.FindAll(x => x == 1);
+            var resultsLessThanZero = list.FindAll(x => x < 0);
+            var resultsAll = list.FindAll();
+
+            //Assert
+            Assert.AreEqual(2, resultsGreaterThanOne[0].Data);
+            Assert.AreEqual(3, resultsGreaterThanOne[1].Data);
+            Assert.AreEqual(2, resultsGreaterThanOne.Count);
+            Assert.AreEqual(1, resultsEqual1[0].Data);
+            Assert.AreEqual(1, resultsEqual1.Count);
+            Assert.AreEqual(3, resultsAll.Count);
+            Assert.AreEqual(0, resultsLessThanZero.Count);
+        }
+
+        [TestMethod]
+        public void ClearList()
+        {
+            //Arrange
+            LinkedList<int> list = new LinkedList<int>();
+            list.Add(1);
+            list.AddBefore(2, 0);
+            list.AddAfter(3, 1);
+
+            //Act
+            list.Clear();
+
+            //Assert
+            Assert.AreEqual(0, list.Count());
+            Assert.IsNull(list.Head);
+            Assert.IsNull(list.Tail);
+        }
+
+        [TestMethod]
+        public void NestedAddingToList()
+        {
+            //Arrange
+            LinkedList<int> list = new LinkedList<int>();
+
+            //Act
+            list.Add(1);
+            list.Add(2);
+            list.AddBefore(3, list.AddBefore(4, list.AddAfter(5, list.Find(2))));
+
+            //Assert
+            Assert.AreEqual(5, list.Count());
+            Assert.AreEqual(1, list.Head.Data);
+            Assert.AreEqual(2, list.Head.Next.Data);
+            Assert.AreEqual(3, list.Head.Next.Next.Data);
+            Assert.AreEqual(4, list.Head.Next.Next.Next.Data);
+            Assert.AreEqual(5, list.Head.Next.Next.Next.Next.Data);
+            Assert.AreEqual(list.Tail, list.Head.Next.Next.Next.Next);
+        }
+    }
+
+    [TestClass]
+    public class LinkedListExtensionTests
+    {
+        [TestMethod]
+        public void LinkedListSumsCorrectly()
+        {
+            //Arrange
+            LinkedList<int> listLeft = new LinkedList<int>();
+            LinkedList<int> listRight = new LinkedList<int>();
+            listLeft.Add(8);
+            listLeft.Add(5);
+            listLeft.Add(6);
+            listRight.Add(1);
+            listRight.Add(7);
+            listRight.Add(4);
+
+            //Act
+            var summedLists = LinkedListsSum.SumLists(listLeft, listRight);
+
+            //Assert
+            //658 + 471 = 1129
+            Assert.AreEqual(4, summedLists.Count());
+            Assert.AreEqual(9, summedLists.Head.Data);
+            Assert.AreEqual(2, summedLists.Head.Next.Data);
+            Assert.AreEqual(1, summedLists.Head.Next.Next.Data);
+            Assert.AreEqual(1, summedLists.Head.Next.Next.Next.Data);
+        }
+
+        [TestMethod]
+        public void LinkedListRemoveDuplicatesCorrectly()
+        {
+            //Arrange
+            LinkedList<int> list = new LinkedList<int>();
+            list.Add(1);
+            list.Add(1);
+            list.Add(3);
+            list.Add(5);
+            list.Add(8);
+            list.Add(4);
+            list.Add(3);
+            list.Add(5);
+
+            //Act
+            list.RemoveDuplicates();
+
+            //Assert
+            Assert.AreEqual(5, list.Count());
+            Assert.AreEqual(1, list.Head.Data);
+            Assert.AreEqual(3, list.Head.Next.Data);
+            Assert.AreEqual(5, list.Head.Next.Next.Data);
+            Assert.AreEqual(8, list.Head.Next.Next.Next.Data);
+            Assert.AreEqual(4, list.Head.Next.Next.Next.Next.Data);
         }
     }
 }
