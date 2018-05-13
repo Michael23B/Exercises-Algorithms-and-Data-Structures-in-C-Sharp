@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
-
 /*
 Doubly-linked list implementation
 
 Some methods allow passing nodes directly either for convenience or to decrease run time
 (deleting a node in the middle of the list is O(1) because of this (assuming you have a reference to it)).
 However passing a node from another list will result in weird behaviour so probably don't do it.
+
+Count() takes O(N) because we can't keep track of the number when a user could change the Prev or Next of any
+element manually.
 */
 namespace PracticeQuestionsSharp.DataStructures
 {

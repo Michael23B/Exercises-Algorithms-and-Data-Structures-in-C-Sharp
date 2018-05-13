@@ -52,9 +52,7 @@ namespace UnitTests
         {
             //Arrange
             Stack<int> stack = new Stack<int>();
-            stack.Push(3);
-            stack.Push(4);
-            stack.Push(5);
+            stack.Push(3).Push(4).Push(5);
 
             //Act
             int stackPop1 = stack.Pop();
@@ -83,12 +81,12 @@ namespace UnitTests
         {
             //Arrange
             Stack<int> stack = new Stack<int>();
-            stack.Push(3);
+            stack.Push(3).Push(2);
 
             //Act
 
             //Assert
-            Assert.AreEqual(3, stack.Peek());
+            Assert.AreEqual(2, stack.Peek());
         }
 
         [TestMethod]
@@ -106,6 +104,38 @@ namespace UnitTests
             //Assert
             Assert.AreEqual(false, notEmpty);
             Assert.AreEqual(true, empty);
+        }
+
+        [TestMethod]
+        public void ClearEmptiesStack()
+        {
+            //Arrange
+            Stack<int> stack = new Stack<int>();
+            stack.Push(3).Push(2);
+
+            //Act
+            stack.Clear();
+
+            //Assert
+            Assert.AreEqual(true, stack.IsEmpty);
+        }
+
+        [TestMethod]
+        public void CountIsCorrect()
+        {
+            //Arrange
+            Stack<int> stack = new Stack<int>();
+            stack.Push(3).Push(2);
+
+            //Act
+            int stackCount2 = stack.Count;
+            int stackCount3 = stack.Push(1).Count;
+            stack.Clear();
+
+            //Assert
+            Assert.AreEqual(2, stackCount2);
+            Assert.AreEqual(3, stackCount3);
+            Assert.AreEqual(0, stack.Count);
         }
     }
 }

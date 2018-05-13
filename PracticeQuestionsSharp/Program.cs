@@ -77,7 +77,7 @@ namespace PracticeQuestionsSharp
 
             Console.WriteLine($"{dupeList.RemoveDuplicates()} items removed.");
             dupeList.Print();
-            */
+            
             //Loop detection
             LinkedList<int> circularList = new LinkedList<int>(1);
             circularList.Add(2);
@@ -88,6 +88,28 @@ namespace PracticeQuestionsSharp
             circularList.Tail.Next = circularList.Tail.Prev.Prev;
 
             Profiler.ProfileAndExecute(() => circularList.DetectLoop().Data);
+            */
+            Stack<int> stackToSort = new Stack<int>();
+            for (int i = 2500; i >= 0; --i)
+            {
+                stackToSort.Push(i);
+            }
+
+            Profiler.ProfileAndExecute(() => stackToSort.Sort());
+
+            //Check if it's really sorted
+            int prev = stackToSort.Pop();
+            Console.Write($"{prev},");
+            while (!stackToSort.IsEmpty)
+            {
+                if (prev > stackToSort.Peek())
+                {
+                    Console.WriteLine("Not sorted!");
+                }
+
+                prev = stackToSort.Pop();
+                Console.Write($"{prev},");
+            }
         }
     }
 }
