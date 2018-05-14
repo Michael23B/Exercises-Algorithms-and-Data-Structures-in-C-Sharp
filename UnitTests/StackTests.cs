@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using PracticeQuestionsSharp.DataStructures;
+using PracticeQuestionsSharp.Exercises;
 
 namespace UnitTests
 {
@@ -136,6 +137,56 @@ namespace UnitTests
             Assert.AreEqual(2, stackCount2);
             Assert.AreEqual(3, stackCount3);
             Assert.AreEqual(0, stack.Count);
+        }
+    }
+
+    [TestClass]
+    public class StackExtensionTests
+    {
+        [TestMethod]
+        public void CanSortInts()
+        {
+            //Arrange
+            Stack<int> stackToSort = new Stack<int>();
+            for (int i = 150; i >= 0; --i)
+            {
+                stackToSort.Push(i);
+            }
+
+            //Act
+            stackToSort.Sort();
+
+            //Assert
+            int prev = stackToSort.Pop();
+
+            while (!stackToSort.IsEmpty)
+            {
+                Assert.IsTrue(prev.CompareTo(stackToSort.Peek()) < 1);
+                prev = stackToSort.Pop();
+            }
+        }
+
+        [TestMethod]
+        public void CanSortStrings()
+        {
+            //Arrange
+            Stack<string> stackToSort = new Stack<string>();
+            for (int i = 150; i >= 0; --i)
+            {
+                stackToSort.Push(i.ToString());
+            }
+
+            //Act
+            stackToSort.Sort();
+
+            //Assert
+            string prev = stackToSort.Pop();
+
+            while (!stackToSort.IsEmpty)
+            {
+                Assert.IsTrue(prev.CompareTo(stackToSort.Peek()) < 1);
+                prev = stackToSort.Pop();
+            }
         }
     }
 }

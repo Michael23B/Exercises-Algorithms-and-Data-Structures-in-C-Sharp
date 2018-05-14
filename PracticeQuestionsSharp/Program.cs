@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
+using PracticeQuestionsSharp.Algorithms;
 using PracticeQuestionsSharp.DataStructures;
 using PracticeQuestionsSharp.Exercises;
 using PracticeQuestionsSharp.Helper;
@@ -88,28 +90,16 @@ namespace PracticeQuestionsSharp
             circularList.Tail.Next = circularList.Tail.Prev.Prev;
 
             Profiler.ProfileAndExecute(() => circularList.DetectLoop().Data);
-            */
+            
+            //Sorting stack (using two stacks only)
             Stack<int> stackToSort = new Stack<int>();
-            for (int i = 2500; i >= 0; --i)
-            {
-                stackToSort.Push(i);
-            }
+            for (int i = 2500; i >= 0; --i) stackToSort.Push(i);
 
             Profiler.ProfileAndExecute(() => stackToSort.Sort());
-
-            //Check if it's really sorted
-            int prev = stackToSort.Pop();
-            Console.Write($"{prev},");
-            while (!stackToSort.IsEmpty)
-            {
-                if (prev > stackToSort.Peek())
-                {
-                    Console.WriteLine("Not sorted!");
-                }
-
-                prev = stackToSort.Pop();
-                Console.Write($"{prev},");
-            }
+            */
+            int[] arr = {1, 5, 43, 1, 2, 6, 1, 3};
+            arr = arr.MergeSortInt().ToArray();
+            foreach (int i in arr) Console.WriteLine(i);
         }
     }
 }
