@@ -99,7 +99,7 @@ namespace PracticeQuestionsSharp
             for (int i = 500000; i >= 0; --i) list.Add(i);
             Profiler.ProfileAndExecute(() => list = list.MergeSort());
             //foreach (int i in list) Console.Write($"{i},");
-            */
+            
             //Animal shelter queue
             Console.WriteLine(DateTime.Now);
             QueueAnimalShelter animalQueue = new QueueAnimalShelter();
@@ -123,6 +123,10 @@ namespace PracticeQuestionsSharp
             while (!animalQueue.IsCatsEmpty) Console.WriteLine(animalQueue.DequeueCat().Name);
 
             while (!animalQueue2.IsEmpty) Console.WriteLine(animalQueue2.DequeueAny().Name);
+            */
+            SimpleGraph<int> graph = new SimpleGraph<int>();
+            graph.Add(3).Add(4);
+            graph.Add(5, new List<GraphNode<int>> { graph.Nodes[0], graph.Nodes[1] });
         }
     }
 }
