@@ -90,16 +90,39 @@ namespace PracticeQuestionsSharp
             for (int i = 2500; i >= 0; --i) stackToSort.Push(i);
 
             Profiler.ProfileAndExecute(() => stackToSort.Sort());
-            */
+            
             int[] arr = {1, 5, 43, 1, 2, 6, 1, 3};
             Profiler.ProfileAndExecute(() => arr = arr.MergeSort().ToArray());
             //foreach (int i in arr) Console.Write($"{i},");
 
             List<int> list = new List<int>();
             for (int i = 500000; i >= 0; --i) list.Add(i);
-            //list = list.MergeSort();
             Profiler.ProfileAndExecute(() => list = list.MergeSort());
             //foreach (int i in list) Console.Write($"{i},");
+            */
+            //Animal shelter queue
+            Console.WriteLine(DateTime.Now);
+            QueueAnimalShelter animalQueue = new QueueAnimalShelter();
+            animalQueue.Enqueue("Cat1", QueueAnimalShelter.Species.Cat)
+                .Enqueue("Cat2", QueueAnimalShelter.Species.Cat)
+                .Enqueue("Dog", QueueAnimalShelter.Species.Dog)
+                .Enqueue("Dog2", QueueAnimalShelter.Species.Dog)
+                .Enqueue("Dog3", QueueAnimalShelter.Species.Dog)
+                .Enqueue("Cat3", QueueAnimalShelter.Species.Cat);
+
+            QueueAnimalShelter animalQueue2 = new QueueAnimalShelter();
+            animalQueue2.Enqueue("Cat1", QueueAnimalShelter.Species.Cat)
+                .Enqueue("Cat2", QueueAnimalShelter.Species.Cat)
+                .Enqueue("Dog", QueueAnimalShelter.Species.Dog)
+                .Enqueue("Dog2", QueueAnimalShelter.Species.Dog)
+                .Enqueue("Dog3", QueueAnimalShelter.Species.Dog)
+                .Enqueue("Cat3", QueueAnimalShelter.Species.Cat);
+
+
+            while (!animalQueue.IsDogsEmpty) Console.WriteLine(animalQueue.DequeueDog().Name);
+            while (!animalQueue.IsCatsEmpty) Console.WriteLine(animalQueue.DequeueCat().Name);
+
+            while (!animalQueue2.IsEmpty) Console.WriteLine(animalQueue2.DequeueAny().Name);
         }
     }
 }
