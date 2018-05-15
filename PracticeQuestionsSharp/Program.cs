@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
@@ -68,20 +69,13 @@ namespace PracticeQuestionsSharp
             list3.Print();
             
             //Remove linked list duplicates
-            LinkedList<int> dupeList = new LinkedList<int>(7);
-            dupeList.Add(7);
-            dupeList.Add(7);
-            dupeList.Add(1);
-            dupeList.Add(4);
-            dupeList.Add(1);
-            dupeList.Add(2);
-            dupeList.Add(7);
+            LinkedList<int> dupeList = new LinkedList<int>(7) { 7,7,1,4,1,2,7 };
 
             Console.WriteLine($"{dupeList.RemoveDuplicates()} items removed.");
             dupeList.Print();
             
             //Loop detection
-            LinkedList<int> circularList = new LinkedList<int>(1);
+            LinkedList<int> circularList = new LinkedList<int>(1) { 2,3,4,5 };
             circularList.Add(2);
             circularList.Add(3);
             circularList.Add(4);
@@ -98,8 +92,14 @@ namespace PracticeQuestionsSharp
             Profiler.ProfileAndExecute(() => stackToSort.Sort());
             */
             int[] arr = {1, 5, 43, 1, 2, 6, 1, 3};
-            arr = arr.MergeSortInt().ToArray();
-            foreach (int i in arr) Console.WriteLine(i);
+            Profiler.ProfileAndExecute(() => arr = arr.MergeSort().ToArray());
+            //foreach (int i in arr) Console.Write($"{i},");
+
+            List<int> list = new List<int>();
+            for (int i = 500000; i >= 0; --i) list.Add(i);
+            //list = list.MergeSort();
+            Profiler.ProfileAndExecute(() => list = list.MergeSort());
+            //foreach (int i in list) Console.Write($"{i},");
         }
     }
 }

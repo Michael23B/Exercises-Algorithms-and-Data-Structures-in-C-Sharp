@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 /*
 Doubly-linked list implementation
@@ -12,7 +13,7 @@ element manually.
 */
 namespace PracticeQuestionsSharp.DataStructures
 {
-    public class LinkedList<T>
+    public class LinkedList<T> : IEnumerable<T>
     {
         public Node<T> Head { get; set; }
         public Node<T> Tail { get; set; }
@@ -255,6 +256,21 @@ namespace PracticeQuestionsSharp.DataStructures
                 else Console.WriteLine(n.Data);
                 n = reverse ? n.Prev : n.Next;
             }
+        }
+
+        public IEnumerator<T> GetEnumerator()
+        {
+            Node<T> n = Head;
+            while (n.Next != null)
+            {
+                yield return n.Data;
+                n = n.Next;
+            }
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
         }
     }
 
