@@ -125,8 +125,12 @@ namespace PracticeQuestionsSharp
             while (!animalQueue2.IsEmpty) Console.WriteLine(animalQueue2.DequeueAny().Name);
             */
             SimpleGraph<int> graph = new SimpleGraph<int>();
-            graph.Add(3).Add(4);
-            graph.Add(5, new List<GraphNode<int>> { graph.Nodes[0], graph.Nodes[1] });
+            graph.Add(3).Add(4).Add(5).Add(6).Add(7).Add(8).Add(9);
+            graph.Link(graph.Nodes[0], graph.Nodes[1]).Link(graph.Nodes[0], graph.Nodes[2]);
+            graph.Link(graph.Nodes[1], graph.Nodes[3]).Link(graph.Nodes[1], graph.Nodes[4]);
+            graph.Link(graph.Nodes[2], graph.Nodes[5]).Link(graph.Nodes[2], graph.Nodes[6]);
+
+            Console.WriteLine(graph.DFS(graph.Nodes[5])?.Data);
         }
     }
 }

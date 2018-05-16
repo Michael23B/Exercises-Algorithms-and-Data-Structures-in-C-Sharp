@@ -2,7 +2,7 @@
 
 namespace PracticeQuestionsSharp.DataStructures
 {
-    class SimpleGraph<T>
+    public class SimpleGraph<T>
     {
         public SimpleGraph()
         {
@@ -12,10 +12,16 @@ namespace PracticeQuestionsSharp.DataStructures
         public SimpleGraph<T> Add(T data, IList<GraphNode<T>> children = null)
         {
             GraphNode<T> newNode = new GraphNode<T>(data);
-            if (children != null) foreach (var n in children) newNode.Children.Add(n);
+            if (children != null) foreach (var n in children) newNode.Neighbors.Add(n);
 
             Nodes.Add(newNode);
 
+            return this;
+        }
+
+        public SimpleGraph<T> Link(GraphNode<T> parent, GraphNode<T> neighbor)
+        {
+            parent.Neighbors.Add(neighbor);
             return this;
         }
 
@@ -27,10 +33,10 @@ namespace PracticeQuestionsSharp.DataStructures
         public GraphNode(T data = default(T))
         {
             Data = data;
-            Children = new List<GraphNode<T>>();
+            Neighbors = new List<GraphNode<T>>();
         }
 
         public T Data { get; }
-        public List<GraphNode<T>> Children { get; }
+        public List<GraphNode<T>> Neighbors { get; }
     }
 }
