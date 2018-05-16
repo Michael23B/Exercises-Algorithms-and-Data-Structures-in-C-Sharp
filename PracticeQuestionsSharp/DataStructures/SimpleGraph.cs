@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace PracticeQuestionsSharp.DataStructures
 {
@@ -9,23 +10,38 @@ namespace PracticeQuestionsSharp.DataStructures
             Nodes = new List<GraphNode<T>>();
         }
 
-        public SimpleGraph<T> Add(T data, IList<GraphNode<T>> children = null)
+        public SimpleGraph<T> Add(T data)
         {
             GraphNode<T> newNode = new GraphNode<T>(data);
-            if (children != null) foreach (var n in children) newNode.Neighbors.Add(n);
+
+            if (Nodes.Count == 0) Root = newNode;
 
             Nodes.Add(newNode);
 
             return this;
         }
 
-        public SimpleGraph<T> Link(GraphNode<T> parent, GraphNode<T> neighbor)
+        public SimpleGraph<T> Link(GraphNode<T> origin, GraphNode<T> neighbor)
         {
-            parent.Neighbors.Add(neighbor);
+            origin.Neighbors.Add(neighbor);
+            return this;
+        }
+
+        public SimpleGraph<T> Link(T originData, T neighborData)
+        {
+            GraphNode<T> originNode = Nodes.Find(x => x.Data.Equals(originData));
+            GraphNode<T> neighborNode = Nodes.Find(x => x.Data.Equals(neighborData));
+
+            if (neighborNode.Origin != null) throw new InvalidOperationException
+                ($"Can't add link! Node {neighborNode.Data} already has origin {neighborNode.Origin.Data}.");
+
+            neighborNode.Origin = originNode;
+            originNode.Neighbors.Add(neighborNode);
             return this;
         }
 
         public List<GraphNode<T>> Nodes { get; }
+        public GraphNode<T> Root { get; set; }
     }
 
     public class GraphNode<T>
@@ -34,9 +50,11 @@ namespace PracticeQuestionsSharp.DataStructures
         {
             Data = data;
             Neighbors = new List<GraphNode<T>>();
+            Origin = null;
         }
 
-        public T Data { get; }
+        public T Data { get; set; }
         public List<GraphNode<T>> Neighbors { get; }
+        public GraphNode<T> Origin { get; set; }
     }
 }

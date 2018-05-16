@@ -123,14 +123,24 @@ namespace PracticeQuestionsSharp
             while (!animalQueue.IsCatsEmpty) Console.WriteLine(animalQueue.DequeueCat().Name);
 
             while (!animalQueue2.IsEmpty) Console.WriteLine(animalQueue2.DequeueAny().Name);
-            */
+            
             SimpleGraph<int> graph = new SimpleGraph<int>();
             graph.Add(3).Add(4).Add(5).Add(6).Add(7).Add(8).Add(9);
-            graph.Link(graph.Nodes[0], graph.Nodes[1]).Link(graph.Nodes[0], graph.Nodes[2]);
-            graph.Link(graph.Nodes[1], graph.Nodes[3]).Link(graph.Nodes[1], graph.Nodes[4]);
-            graph.Link(graph.Nodes[2], graph.Nodes[5]).Link(graph.Nodes[2], graph.Nodes[6]);
+            graph.Link(3, 4).Link(3, 5);
+            graph.Link(4, 6).Link(4, 7);
+            graph.Link(5, 8);
+            graph.Link(7, 9);
 
-            Console.WriteLine(graph.DFS(graph.Nodes[5])?.Data);
+            var path = graph.DFSPathTo(8);
+
+            Console.WriteLine("Depth-first");
+            foreach (var node in path) Console.WriteLine(node.Data);
+            */
+
+            var minHeap = new MinHeap<int>();
+            minHeap.Insert(5).Insert(3).Insert(8).Insert(1).Insert(4).Insert(10);
+
+            while (!minHeap.IsEmpty) Console.WriteLine(minHeap.ExtractMin());
         }
     }
 }
