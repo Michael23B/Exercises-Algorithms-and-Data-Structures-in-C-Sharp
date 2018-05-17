@@ -19,7 +19,7 @@ namespace PracticeQuestionsSharp.DataStructures
             {
                 int j = (i + 1) / 2 - 1;
 
-                if (nodes[j].CompareTo(nodes[i]) <= 0) break;
+                if (nodes[i].CompareTo(nodes[j]) >= 0) break;
 
                 SwapNodes(i, j);
                 i = j;
@@ -72,7 +72,7 @@ namespace PracticeQuestionsSharp.DataStructures
         {
             T temp = nodes[first];
             nodes[first] = nodes[second];
-            nodes[first] = temp;
+            nodes[second] = temp;
         }
     }
 }
