@@ -135,12 +135,29 @@ namespace PracticeQuestionsSharp
 
             Console.WriteLine("Depth-first");
             foreach (var node in path) Console.WriteLine(node.Data);
-            */
-
-            var minHeap = new MinHeap<int>();
+            
+            var minHeap = new MinHeap<int>(new[] {1,2,3,4,5,6,7,8,9,10});
             minHeap.Insert(5).Insert(3).Insert(8).Insert(1).Insert(4).Insert(10);
 
+            var depthLists = minHeap.GetDepthLists();
+
+            foreach (var list in depthLists)
+            {
+                foreach (var node in list) Console.Write($"{node}, ");
+                Console.WriteLine("");
+            }
+
             while (!minHeap.IsEmpty) Console.WriteLine(minHeap.ExtractMin());
+            
+            //Heapsort
+            var unsorted = new List<int>(1000);
+            for (int i = 1000; i > 0; --i) unsorted.Add(i);
+            Profiler.ProfileAndExecute(() => unsorted.HeapSortAscending(), 1000);
+            */
+            var priorityQueue = new PriorityQueue<int>();
+            priorityQueue.Enqueue(3, 2).Enqueue(5, 2).Enqueue(1).Enqueue(6, 6).Enqueue(4, 4);
+
+            while (!priorityQueue.IsEmpty) Console.WriteLine(priorityQueue.Dequeue());
         }
     }
 }

@@ -1,14 +1,28 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 
 namespace PracticeQuestionsSharp.DataStructures
 {
-    public class MinHeap<T> where T : IComparable
+    //Array based min-heap
+    public class MinHeap<T> : IEnumerable<T> where T : IComparable
     {
         public int Count => nodes.Count;
         public bool IsEmpty => nodes.Count == 0;
 
         private IList<T> nodes = new List<T>();
+
+        public MinHeap() { }
+
+        //Create a minimum binary tree from a sorted (increasing) array
+        public MinHeap(IList<T> sortedArray)
+        {
+            nodes = new List<T>(sortedArray.Count);
+            foreach (var element in sortedArray)
+            {
+                nodes.Add(element);
+            }
+        }
 
         public MinHeap<T> Insert(T data)
         {
@@ -73,6 +87,16 @@ namespace PracticeQuestionsSharp.DataStructures
             T temp = nodes[first];
             nodes[first] = nodes[second];
             nodes[second] = temp;
+        }
+
+        public IEnumerator<T> GetEnumerator()
+        {
+            return nodes.GetEnumerator();
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return nodes.GetEnumerator();
         }
     }
 }
