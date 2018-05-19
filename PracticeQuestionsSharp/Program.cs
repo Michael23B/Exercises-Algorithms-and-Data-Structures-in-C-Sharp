@@ -153,11 +153,15 @@ namespace PracticeQuestionsSharp
             var unsorted = new List<int>(1000);
             for (int i = 1000; i > 0; --i) unsorted.Add(i);
             Profiler.ProfileAndExecute(() => unsorted.HeapSortAscending(), 1000);
-            */
             var priorityQueue = new PriorityQueue<int>();
             priorityQueue.Enqueue(3, 2).Enqueue(5, 2).Enqueue(1).Enqueue(6, 6).Enqueue(4, 4);
 
             while (!priorityQueue.IsEmpty) Console.WriteLine(priorityQueue.Dequeue());
+            */
+            var BST = new BinarySearchTree<int>();
+            BST.Insert(3).Insert(4).Insert(5).Insert(7).Insert(1).Insert(10).Insert(2);
+            BST.Remove(5); //bugged atm removes 4
+            BST.PrintAll();
         }
     }
 }
