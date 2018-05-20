@@ -6,6 +6,7 @@ namespace PracticeQuestionsSharp.DataStructures
     {
         public BinarySearchTree<T> Insert(T data)
         {
+            if (data == null) return null;
             if (root == null) { root = new BinaryTreeNode<T>(data); }
             else Insert(data, root);
             return this;
@@ -13,7 +14,9 @@ namespace PracticeQuestionsSharp.DataStructures
 
         private void Insert(T data, BinaryTreeNode<T> origin)
         {
-            //TODO: if the value is the same add a linked list here that stores all equal values?
+            if (data.CompareTo(origin.Data) == 0)
+                throw new InvalidOperationException("No duplicate data allowed in BST.");
+
             if (data.CompareTo(origin.Data) < 0)
             {
                 if (origin.Left == null) origin.Left = new BinaryTreeNode<T>(data);
@@ -33,16 +36,18 @@ namespace PracticeQuestionsSharp.DataStructures
 
         private BinaryTreeNode<T> Remove(T data, BinaryTreeNode<T> origin)
         {
-            if (origin == null) return null;
+            if (origin == null || data == null) return null;
 
             if (data.CompareTo(origin.Data) == -1)
             {
-                return origin.Left = Remove(data, origin.Left);
+                origin.Left = Remove(data, origin.Left);
+                return origin;
             }
 
             if (data.CompareTo(origin.Data) == 1)
             {
-                return origin.Right = Remove(data, origin.Right);
+                origin.Right = Remove(data, origin.Right);
+                return origin;
             }
 
             if (data.CompareTo(origin.Data) == 0)
@@ -52,7 +57,8 @@ namespace PracticeQuestionsSharp.DataStructures
                     var minimum = Minimum(origin.Right);
 
                     origin.Data = minimum;
-                    return origin.Right = Remove(minimum, origin.Right);
+                    origin.Right = Remove(minimum, origin.Right);
+                    return origin;
                 }
                 if (origin.Left == null) return origin.Right;
                 if (origin.Right == null) return origin.Left;
@@ -73,7 +79,7 @@ namespace PracticeQuestionsSharp.DataStructures
             Print(root);
         }
 
-        private void Print(BinaryTreeNode<T> origin)
+        private void Print(BinaryTreeNode<T> origin) //In order traversal
         {
             if (origin.Left != null) Print(origin.Left);
 

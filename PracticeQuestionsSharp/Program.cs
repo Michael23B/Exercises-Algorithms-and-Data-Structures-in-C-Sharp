@@ -159,8 +159,9 @@ namespace PracticeQuestionsSharp
             while (!priorityQueue.IsEmpty) Console.WriteLine(priorityQueue.Dequeue());
             */
             var BST = new BinarySearchTree<int>();
-            BST.Insert(3).Insert(4).Insert(5).Insert(7).Insert(1).Insert(10).Insert(2);
-            BST.Remove(5); //bugged atm removes 4
+            BST.Insert(3).Insert(4).Insert(5).Insert(7).Insert(1).Insert(10)
+               .Insert(2).Insert(6).Insert(8).Insert(-2).Insert(-3).Insert(-1).Insert(9);
+            BST.Remove(1);
             BST.PrintAll();
         }
     }
