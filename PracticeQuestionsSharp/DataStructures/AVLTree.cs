@@ -2,17 +2,17 @@
 
 namespace PracticeQuestionsSharp.DataStructures
 {
-    public class BinarySearchTree<T> where T : IComparable
+    public class AVLTree<T> where T : IComparable
     {
-        public BinarySearchTree<T> Insert(T data)
+        public AVLTree<T> Insert(T data)
         {
             if (data == null) return null;
-            if (root == null) { root = new BinaryTreeNode<T>(data); }
+            if (root == null) { root = new AVLTreeNode<T>(data); }
             else Insert(data, root);
             return this;
         }
 
-        private void Insert(T data, BinaryTreeNode<T> origin)
+        private void Insert(T data, AVLTreeNode<T> origin)
         {
             int comparisonResult = data.CompareTo(origin.Data);
             if (comparisonResult == 0)
@@ -20,12 +20,12 @@ namespace PracticeQuestionsSharp.DataStructures
 
             if (comparisonResult < 0)
             {
-                if (origin.Left == null) origin.Left = new BinaryTreeNode<T>(data);
+                if (origin.Left == null) origin.Left = new AVLTreeNode<T>(data);
                 else Insert(data, origin.Left);
             }
             else
             {
-                if (origin.Right == null) origin.Right = new BinaryTreeNode<T>(data);
+                if (origin.Right == null) origin.Right = new AVLTreeNode<T>(data);
                 else Insert(data, origin.Right);
             }
         }
@@ -35,7 +35,7 @@ namespace PracticeQuestionsSharp.DataStructures
             Remove(data, root);
         }
 
-        private BinaryTreeNode<T> Remove(T data, BinaryTreeNode<T> origin)
+        private AVLTreeNode<T> Remove(T data, AVLTreeNode<T> origin)
         {
             if (origin == null || data == null) return null;
             int comparisonResult = data.CompareTo(origin.Data);
@@ -70,10 +70,27 @@ namespace PracticeQuestionsSharp.DataStructures
             return null;
         }
 
-        T Minimum(BinaryTreeNode<T> origin)
+        T Minimum(AVLTreeNode<T> origin)
         {
             while (origin.Left != null) origin = origin.Left;
             return origin.Data;
+        }
+
+        private AVLTreeNode<T> RightRotate(AVLTreeNode<T> y)
+        {
+            AVLTreeNode<T> x = y.Left;
+            AVLTreeNode<T> z = x.Right;
+
+            x.Right = y;
+            y.Left = z;
+
+            y.Height = y.Left.Height > y.Right.Height ? y.Left.Height : y.Right.Height;
+            x.Height = x.Left.Height > x.Right.Height ? x.Left.Height : x.Right.Height;
+            //New height is 1 plus child max
+            y.Height++;
+            x.Height++;
+
+            return x;
         }
 
         public void PrintAll()
@@ -81,7 +98,7 @@ namespace PracticeQuestionsSharp.DataStructures
             Print(root);
         }
 
-        private void Print(BinaryTreeNode<T> origin) //In order traversal
+        private void Print(AVLTreeNode<T> origin) //In order traversal
         {
             if (origin.Left != null) Print(origin.Left);
 
@@ -91,14 +108,15 @@ namespace PracticeQuestionsSharp.DataStructures
         }
 
         public bool IsEmpty => root == null;
-        private BinaryTreeNode<T> root;
+        private AVLTreeNode<T> root;
     }
 
-    class BinaryTreeNode<T>
+    class AVLTreeNode<T>
     {
-        public BinaryTreeNode(T data) { Data = data; }
+        public AVLTreeNode(T data) { Data = data; }
         public T Data { get; set; }
-        public BinaryTreeNode<T> Left { get; set; }
-        public BinaryTreeNode<T> Right { get; set; }
+        public int Height { get; set; }
+        public AVLTreeNode<T> Left { get; set; }
+        public AVLTreeNode<T> Right { get; set; }
     }
 }

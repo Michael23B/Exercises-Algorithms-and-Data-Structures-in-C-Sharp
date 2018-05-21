@@ -157,12 +157,15 @@ namespace PracticeQuestionsSharp
             priorityQueue.Enqueue(3, 2).Enqueue(5, 2).Enqueue(1).Enqueue(6, 6).Enqueue(4, 4);
 
             while (!priorityQueue.IsEmpty) Console.WriteLine(priorityQueue.Dequeue());
-            */
+            
             var BST = new BinarySearchTree<int>();
             BST.Insert(3).Insert(4).Insert(5).Insert(7).Insert(1).Insert(10)
                .Insert(2).Insert(6).Insert(8).Insert(-2).Insert(-3).Insert(-1).Insert(9);
             BST.Remove(1);
             BST.PrintAll();
+            */
+            List<int> intlist = new List<int> {10, 20, 30, 40, 50};
+            Console.WriteLine(intlist.Search(50));
         }
     }
 }
