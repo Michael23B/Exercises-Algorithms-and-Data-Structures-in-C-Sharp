@@ -28,6 +28,25 @@ namespace PracticeQuestionsSharp.DataStructures
                 if (origin.Right == null) origin.Right = new AVLTreeNode<T>(data);
                 else Insert(data, origin.Right);
             }
+
+            //Update height recursively
+            origin.CalculateHeight();
+
+            //Test for and repair imbalance
+            int nodeBalance = origin.Balance();
+
+            if (nodeBalance > 1 && data.CompareTo(origin.Left.Data) < 0) RightRotate(origin);
+            if (nodeBalance < -1 && data.CompareTo(origin.Right.Data) > 0) LeftRotate(origin);
+            if (nodeBalance > 1 && data.CompareTo(origin.Left.Data) > 0)
+            {
+                origin.Left = LeftRotate(origin.Left);
+                RightRotate(origin);
+            }
+            if (nodeBalance < -1 && data.CompareTo(origin.Right.Data) < 0)
+            {
+                origin.Right = RightRotate(origin.Right);
+                LeftRotate(origin);
+            }
         }
 
         public void Remove(T data)
@@ -79,18 +98,29 @@ namespace PracticeQuestionsSharp.DataStructures
         private AVLTreeNode<T> RightRotate(AVLTreeNode<T> y)
         {
             AVLTreeNode<T> x = y.Left;
-            AVLTreeNode<T> z = x.Right;
+            AVLTreeNode<T> temp = x.Right;
 
             x.Right = y;
-            y.Left = z;
+            y.Left = temp;
 
-            y.Height = y.Left.Height > y.Right.Height ? y.Left.Height : y.Right.Height;
-            x.Height = x.Left.Height > x.Right.Height ? x.Left.Height : x.Right.Height;
-            //New height is 1 plus child max
-            y.Height++;
-            x.Height++;
+            y.CalculateHeight();
+            x.CalculateHeight();
 
             return x;
+        }
+
+        private AVLTreeNode<T> LeftRotate(AVLTreeNode<T> x)
+        {
+            AVLTreeNode<T> y = x.Right;
+            AVLTreeNode<T> temp = y.Left;
+ 
+            y.Left = x;
+            x.Right = temp;
+
+            x.CalculateHeight();
+            y.CalculateHeight();
+
+            return y;
         }
 
         public void PrintAll()
@@ -102,7 +132,7 @@ namespace PracticeQuestionsSharp.DataStructures
         {
             if (origin.Left != null) Print(origin.Left);
 
-            Console.WriteLine(origin.Data);
+            Console.WriteLine($"{origin.Data}, ({origin.Height})");
 
             if (origin.Right != null) Print(origin.Right);
         }
@@ -113,10 +143,29 @@ namespace PracticeQuestionsSharp.DataStructures
 
     class AVLTreeNode<T>
     {
-        public AVLTreeNode(T data) { Data = data; }
+        public AVLTreeNode(T data) {
+            Data = data;
+            Height = 1;
+        }
         public T Data { get; set; }
         public int Height { get; set; }
         public AVLTreeNode<T> Left { get; set; }
         public AVLTreeNode<T> Right { get; set; }
+
+        public int Balance()
+        {
+            if (Left == null && Right == null) return 0;
+            if (Left == null) return Right.Height;
+            if (Right == null) return Left.Height;
+            return Left.Height - Right.Height;
+        }
+
+        public int CalculateHeight()
+        {
+            if (Left == null && Right == null) return Height = 1;
+            if (Left == null) return Height = Right.Height + 1;
+            if (Right == null) return Height = Left.Height + 1;
+            return Height = Left.Height > Right.Height ? Left.Height + 1 : Right.Height + 1;
+        }
     }
 }

@@ -163,9 +163,14 @@ namespace PracticeQuestionsSharp
                .Insert(2).Insert(6).Insert(8).Insert(-2).Insert(-3).Insert(-1).Insert(9);
             BST.Remove(1);
             BST.PrintAll();
-            */
+            
             List<int> intlist = new List<int> {10, 20, 30, 40, 50};
             Console.WriteLine(intlist.Search(50));
+            */
+            var intAvl = new AVLTree<int>();
+            intAvl.Insert(3).Insert(6).Insert(2).Insert(1).Insert(8).Insert(9).Insert(-3).Insert(-2);
+
+            intAvl.PrintAll();
         }
     }
 }
