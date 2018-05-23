@@ -166,11 +166,21 @@ namespace PracticeQuestionsSharp
             
             List<int> intlist = new List<int> {10, 20, 30, 40, 50};
             Console.WriteLine(intlist.Search(50));
-            */
+            
             var intAvl = new AVLTree<int>();
             intAvl.Insert(3).Insert(6).Insert(2).Insert(1).Insert(8).Insert(9).Insert(-3).Insert(-2);
 
             intAvl.PrintAll(true);
+            Console.WriteLine("-----");
+            intAvl.Remove(3);
+            intAvl.PrintAll(true);
+            Console.WriteLine("-----");
+            //TODO: add avl tests
+            */
+
+            List<int> primes = new List<int>();
+            primes = Prime.PrimesToN3(200);
+            foreach (int i in primes) Console.Write($"{i},");
         }
     }
 }
