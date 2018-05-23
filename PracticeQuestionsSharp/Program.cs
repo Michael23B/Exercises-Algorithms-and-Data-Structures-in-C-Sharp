@@ -170,7 +170,7 @@ namespace PracticeQuestionsSharp
             var intAvl = new AVLTree<int>();
             intAvl.Insert(3).Insert(6).Insert(2).Insert(1).Insert(8).Insert(9).Insert(-3).Insert(-2);
 
-            intAvl.PrintAll();
+            intAvl.PrintAll(true);
         }
     }
 }

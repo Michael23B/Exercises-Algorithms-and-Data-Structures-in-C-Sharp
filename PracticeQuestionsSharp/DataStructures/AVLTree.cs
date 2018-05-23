@@ -8,44 +8,69 @@ namespace PracticeQuestionsSharp.DataStructures
         {
             if (data == null) return null;
             if (root == null) { root = new AVLTreeNode<T>(data); }
-            else Insert(data, root);
+            else Insert(data, root, root);
             return this;
         }
 
-        private void Insert(T data, AVLTreeNode<T> origin)
+        private void Insert(T data, AVLTreeNode<T> origin, AVLTreeNode<T> parent)
         {
             int comparisonResult = data.CompareTo(origin.Data);
             if (comparisonResult == 0)
-                throw new InvalidOperationException("No duplicate data allowed in BST.");
+                throw new InvalidOperationException("No duplicate data allowed in AVL Tree.");
 
             if (comparisonResult < 0)
             {
                 if (origin.Left == null) origin.Left = new AVLTreeNode<T>(data);
-                else Insert(data, origin.Left);
+                else Insert(data, origin.Left, origin);
             }
             else
             {
                 if (origin.Right == null) origin.Right = new AVLTreeNode<T>(data);
-                else Insert(data, origin.Right);
+                else Insert(data, origin.Right, origin);
             }
 
             //Update height recursively
             origin.CalculateHeight();
 
-            //Test for and repair imbalance
+            Rebalance(data, origin, parent);
+        }
+
+        private void Rebalance(T data, AVLTreeNode<T> origin, AVLTreeNode<T> parent)
+        {
+            //Balance > 0 == Left-heavy. Balance < 0 == Right-heavy
             int nodeBalance = origin.Balance();
 
-            if (nodeBalance > 1 && data.CompareTo(origin.Left.Data) < 0) RightRotate(origin);
-            if (nodeBalance < -1 && data.CompareTo(origin.Right.Data) > 0) LeftRotate(origin);
+            if (nodeBalance > 1 && data.CompareTo(origin.Left.Data) < 0)
+            {
+                if (root.Equals(origin)) root = RightRotate(root);
+                else if (parent.Left != null && parent.Left.Equals(origin)) parent.Left = RightRotate(origin);
+                else parent.Right = RightRotate(origin);
+                return;
+            }
+
+            if (nodeBalance < -1 && data.CompareTo(origin.Right.Data) > 0)
+            {
+                if (root.Equals(origin)) root = LeftRotate(root);
+                else if (parent.Left != null && parent.Left.Equals(origin)) parent.Left = LeftRotate(origin);
+                else parent.Right = LeftRotate(origin);
+                return;
+            }
             if (nodeBalance > 1 && data.CompareTo(origin.Left.Data) > 0)
             {
                 origin.Left = LeftRotate(origin.Left);
-                RightRotate(origin);
+
+                if (root.Equals(origin)) root = RightRotate(root);
+                else if (parent.Left != null && parent.Left.Equals(origin)) parent.Left = RightRotate(origin);
+                else parent.Right = RightRotate(origin);
+                return;
             }
             if (nodeBalance < -1 && data.CompareTo(origin.Right.Data) < 0)
             {
                 origin.Right = RightRotate(origin.Right);
-                LeftRotate(origin);
+
+                if (root.Equals(origin)) root = LeftRotate(root);
+                else if (parent.Left != null && parent.Left.Equals(origin)) parent.Left = LeftRotate(origin);
+                else parent.Right = LeftRotate(origin);
             }
         }
 
@@ -123,9 +148,11 @@ namespace PracticeQuestionsSharp.DataStructures
             return y;
         }
 
-        public void PrintAll()
+        //Print methods
+        public void PrintAll(bool levelOrder = false)
         {
-            Print(root);
+            if (levelOrder) PrintLevelOrder(root);
+            else Print(root);
         }
 
         private void Print(AVLTreeNode<T> origin) //In order traversal
@@ -135,6 +162,26 @@ namespace PracticeQuestionsSharp.DataStructures
             Console.WriteLine($"{origin.Data}, ({origin.Height})");
 
             if (origin.Right != null) Print(origin.Right);
+        }
+
+        private void PrintLevelOrder(AVLTreeNode<T> origin) //Level order traversal
+        {
+            var printQueue = new PriorityQueue<string>();
+
+            PrintLevel(origin, 0, printQueue);
+
+            while (!printQueue.IsEmpty)
+            {
+                Console.WriteLine(printQueue.Dequeue());
+            }
+        }
+
+        private void PrintLevel(AVLTreeNode<T> origin, int level, PriorityQueue<string> printQueue)
+        {
+            printQueue.Enqueue($"{origin.Data} ({level})", level);
+
+            if (origin.Left != null) PrintLevel(origin.Left, level + 1, printQueue);
+            if (origin.Right != null) PrintLevel(origin.Right, level + 1, printQueue);
         }
 
         public bool IsEmpty => root == null;
@@ -155,7 +202,7 @@ namespace PracticeQuestionsSharp.DataStructures
         public int Balance()
         {
             if (Left == null && Right == null) return 0;
-            if (Left == null) return Right.Height;
+            if (Left == null) return 0 - Right.Height;
             if (Right == null) return Left.Height;
             return Left.Height - Right.Height;
         }
