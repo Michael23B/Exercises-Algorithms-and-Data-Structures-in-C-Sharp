@@ -76,6 +76,28 @@ namespace PracticeQuestionsSharp.DataStructures
             return origin.Data;
         }
 
+        public T TraverseToIndex(int index)
+        {
+            BinaryTreeNode<T> n = root;
+            var stack = new Stack<T>();
+
+            Traversal(root, stack);
+
+            return stack.Pop();
+        }
+
+        private void Traversal(BinaryTreeNode<T> origin, Stack<T> stack)
+        {
+            if (RAI <= RAT) return; //reached the random target, stop searching
+            if (origin.Left != null) Traversal(origin.Left, stack);
+            if (RAI == RAT)
+            {
+                stack.Push(origin.Data);
+                RAI--;
+            }
+            if (origin.Left != null) Traversal(origin.Left, stack);
+        }
+
         public void PrintAll()
         {
             Print(root);
@@ -89,6 +111,10 @@ namespace PracticeQuestionsSharp.DataStructures
 
             if (origin.Right != null) Print(origin.Right);
         }
+
+        //Random access exercise
+        public int RAI { get; set; } //Random Access Index (begins as the count of this tree)
+        public int RAT { get; set; } //Random Access Target (the random target to stop at during traversal)
 
         public bool IsEmpty => root == null;
         private BinaryTreeNode<T> root;

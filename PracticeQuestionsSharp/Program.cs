@@ -25,6 +25,7 @@ namespace PracticeQuestionsSharp
             //Primes
             Profiler.ProfileAndExecute(() => Prime.PrimesToN1(200000));
             Profiler.ProfileAndExecute(() => Prime.PrimesToN2(200000));
+            Profiler.ProfileAndExecute(() => Prime.PrimesToN3(200000));
 
             //Unique string
             StringBuilder sb = new StringBuilder();
@@ -177,10 +178,11 @@ namespace PracticeQuestionsSharp
             Console.WriteLine("-----");
             //TODO: add avl tests
             */
+            var randTree = new BinaryTreeRandomElement<int>();
 
-            List<int> primes = new List<int>();
-            primes = Prime.PrimesToN3(200);
-            foreach (int i in primes) Console.Write($"{i},");
+            randTree.Insert(3).Insert(5).Insert(-1);
+
+            Console.WriteLine(randTree.GetRandom());
         }
     }
 }
