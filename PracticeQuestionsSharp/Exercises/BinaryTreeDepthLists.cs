@@ -8,7 +8,7 @@ namespace PracticeQuestionsSharp.Exercises
     {
         //Return a list for each depth of a binary tree.
         //Array-based tree with IEnumerable implemented to move through the array in order
-        public static List<List<T>> GetDepthLists<T>(this MinHeap<T> tree) where T : IComparable
+        public static List<List<T>> GetDepthLists<T>(this MinHeap<T> tree) where T : IComparable<T>
         {
             if (tree == null || tree.IsEmpty) return null;
 

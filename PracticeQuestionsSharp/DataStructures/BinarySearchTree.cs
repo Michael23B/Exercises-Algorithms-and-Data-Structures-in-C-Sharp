@@ -2,7 +2,7 @@
 
 namespace PracticeQuestionsSharp.DataStructures
 {
-    public class BinarySearchTree<T> where T : IComparable
+    public class BinarySearchTree<T> where T : IComparable<T>
     {
         public BinarySearchTree<T> Insert(T data)
         {

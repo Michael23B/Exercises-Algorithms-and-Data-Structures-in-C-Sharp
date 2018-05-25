@@ -6,21 +6,6 @@ using PracticeQuestionsSharp.Exercises;
 
 namespace UnitTests
 {
-    class DummyClass
-    {
-        public DummyClass()
-        {
-            dummyData = "data";
-        }
-
-        public string DummyMethod()
-        {
-            return "method";
-        }
-
-        public string dummyData;
-    }
-
     [TestClass]
     public class LinkedListTests
     {

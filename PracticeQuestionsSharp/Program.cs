@@ -195,7 +195,7 @@ namespace PracticeQuestionsSharp
             for (int i = 0; i < 7; ++i) Console.WriteLine($"{i}: {intCounts2[i]}");
             Profiler.ProfileAndExecute(() => randTree.GetRandom2(), 1000000, "GetRandom2()");
 
-            //TODO: Add tests for Binary tree, AVL tree and Minheap
+            //TODO: Add tests for Binary tree and AVL tree
         }
     }
 }

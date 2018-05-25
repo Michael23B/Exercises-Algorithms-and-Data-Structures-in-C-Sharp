@@ -5,7 +5,7 @@ using System.Collections.Generic;
 namespace PracticeQuestionsSharp.DataStructures
 {
     //Array based min-heap
-    public class MinHeap<T> : IEnumerable<T> where T : IComparable
+    public class MinHeap<T> : IEnumerable<T> where T : IComparable<T>
     {
         public int Count => nodes.Count;
         public bool IsEmpty => nodes.Count == 0;

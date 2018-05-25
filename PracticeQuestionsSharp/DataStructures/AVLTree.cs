@@ -2,7 +2,7 @@
 
 namespace PracticeQuestionsSharp.DataStructures
 {
-    public class AVLTree<T> where T : IComparable
+    public class AVLTree<T> where T : IComparable<T>
     {
         public AVLTree<T> Insert(T data)
         {
