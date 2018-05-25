@@ -180,8 +180,7 @@ namespace PracticeQuestionsSharp
             */
             var randTree = new BinaryTreeRandomElement<int>();
 
-            randTree.Insert(3).Insert(5).Insert(-1);
-
+            randTree.Insert(3).Insert(5).Insert(-1).Insert(4).Insert(-6).Insert(8);
             Console.WriteLine(randTree.GetRandom());
         }
     }

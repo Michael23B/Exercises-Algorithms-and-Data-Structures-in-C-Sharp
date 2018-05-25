@@ -2,6 +2,8 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using PracticeQuestionsSharp.DataStructures;
 using PracticeQuestionsSharp.Exercises;
 
+//TODO: Add enumeration tests
+
 namespace UnitTests
 {
     class DummyClass
