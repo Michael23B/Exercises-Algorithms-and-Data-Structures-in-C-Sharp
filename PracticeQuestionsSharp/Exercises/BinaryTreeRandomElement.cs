@@ -11,13 +11,13 @@ namespace PracticeQuestionsSharp.Exercises
         public BinaryTreeRandomElement<T> Insert(T data)
         {
             if (data == null) return null;
-            if (root == null) { root = new BinaryTreeNode<T>(data); }
+            if (root == null) { root = new BinaryTreeNodeWithSize<T>(data); }
             else Insert(data, root);
             Count++;
             return this;
         }
 
-        private void Insert(T data, BinaryTreeNode<T> origin)
+        private void Insert(T data, BinaryTreeNodeWithSize<T> origin)
         {
             int comparisonResult = data.CompareTo(origin.Data);
             if (comparisonResult == 0)
@@ -25,23 +25,25 @@ namespace PracticeQuestionsSharp.Exercises
 
             if (comparisonResult < 0)
             {
-                if (origin.Left == null) origin.Left = new BinaryTreeNode<T>(data);
+                if (origin.Left == null) origin.Left = new BinaryTreeNodeWithSize<T>(data);
                 else Insert(data, origin.Left);
             }
             else
             {
-                if (origin.Right == null) origin.Right = new BinaryTreeNode<T>(data);
+                if (origin.Right == null) origin.Right = new BinaryTreeNodeWithSize<T>(data);
                 else Insert(data, origin.Right);
             }
+
+            origin.UpdateSize();
         }
 
         public void Remove(T data)
         { 
-            if (Remove(data, root) != null) Count--;
+            if ((root = Remove(data, root)) != null) Count--;
             if (root == null) Count = 0;
         }
 
-        private BinaryTreeNode<T> Remove(T data, BinaryTreeNode<T> origin)
+        private BinaryTreeNodeWithSize<T> Remove(T data, BinaryTreeNodeWithSize<T> origin)
         {
             if (origin == null || data == null) return null;
             int comparisonResult = data.CompareTo(origin.Data);
@@ -50,6 +52,7 @@ namespace PracticeQuestionsSharp.Exercises
             {
                 if (origin.Left == null) throw new InvalidOperationException($"Couldn't find {data} to remove!");
                 origin.Left = Remove(data, origin.Left);
+                origin.UpdateSize();
                 return origin;
             }
 
@@ -57,29 +60,28 @@ namespace PracticeQuestionsSharp.Exercises
             {
                 if (origin.Right == null) throw new InvalidOperationException($"Couldn't find {data} to remove!");
                 origin.Right = Remove(data, origin.Right);
+                origin.UpdateSize();
                 return origin;
             }
-
-            if (comparisonResult == 0)
+            //Match found
+            //If we have two children, replace my data with rights min, then remove starting from right
+            if (origin.Left != null && origin.Right != null)
             {
-                if (origin.Left != null && origin.Right != null)
-                {
-                    var minimum = Minimum(origin.Right);
+                var minimum = Minimum(origin.Right);
 
-                    origin.Data = minimum;
-                    origin.Right = Remove(minimum, origin.Right);
-                    return origin;
-                }
-                if (origin.Left == null) return origin.Right;
-                if (origin.Right == null) return origin.Left;
+                origin.Data = minimum;
+                origin.Right = Remove(minimum, origin.Right);
+                origin.UpdateSize();
+                return origin;
             }
-
-            return null;
+            
+            if (origin.Left == null) return origin.Right;
+            else return origin.Left;
         }
 
         public bool Find(T data)
         {
-            BinaryTreeNode<T> curr = root;
+            BinaryTreeNodeWithSize<T> curr = root;
 
             while (curr != null)
             {
@@ -93,20 +95,45 @@ namespace PracticeQuestionsSharp.Exercises
             return false;
         }
 
-        T Minimum(BinaryTreeNode<T> origin)
+        T Minimum(BinaryTreeNodeWithSize<T> origin)
         {
             while (origin.Left != null) origin = origin.Left;
             return origin.Data;
         }
 
+        //Gets a random number from 0 through Count - 1 and travels to that node (in-order)
+        //Takes n time in the worst case where n = Count
         public T GetRandom()
         {
             return TraverseToIndex(r.Next(0, Count));
         }
 
+        //Gets a random number by comparing sub-tree sizes to determine the probability
+        //of choosing that node. Worst case takes time equal to the depth of the longest path.
+        public T GetRandom2()
+        {
+            int rIndex = r.Next(1, Count + 1);
+            BinaryTreeNodeWithSize<T> n = root;
+
+            while (n != null)
+            {
+                if (n.Size == rIndex) return n.Data;
+
+                if (n.Left != null && rIndex <= n.Left.Size) n = n.Left;
+                else
+                {
+                    //Left side was not chosen, update our rIndex because we are no longer considering it
+                    rIndex -= n.Left?.Size ?? 0;
+                    n = n.Right;
+                }
+            }
+
+            throw new InvalidOperationException("Tree empty!");
+        }
+
         public T TraverseToIndex(int index)
         {
-            BinaryTreeNode<T> n = root;
+            BinaryTreeNodeWithSize<T> n = root;
             var stack = new Stack<T>();
             RandTarget = index;
             RandIndex = -1;
@@ -116,7 +143,7 @@ namespace PracticeQuestionsSharp.Exercises
             return stack.Pop();
         }
 
-        private void Traversal(BinaryTreeNode<T> origin, Stack<T> stack)
+        private void Traversal(BinaryTreeNodeWithSize<T> origin, Stack<T> stack)
         {
             if (RandIndex == RandTarget) return; //reached the random target, stop searching
             if (origin.Left != null) Traversal(origin.Left, stack);
@@ -129,26 +156,22 @@ namespace PracticeQuestionsSharp.Exercises
             if (origin.Right != null) Traversal(origin.Right, stack);
         }
 
-        public void PrintAll()
-        {
-            Print(root);
-        }
-
-        private void Print(BinaryTreeNode<T> origin) //In order traversal
-        {
-            if (origin.Left != null) Print(origin.Left);
-
-            Console.WriteLine(origin.Data);
-
-            if (origin.Right != null) Print(origin.Right);
-        }
-
         public int RandIndex { get; set; }
         public int RandTarget { get; set; }
         private readonly Random r = new Random();
 
         public int Count { get; set; }
         public bool IsEmpty => root == null;
-        private BinaryTreeNode<T> root;
+        private BinaryTreeNodeWithSize<T> root;
+    }
+
+    class BinaryTreeNodeWithSize<T>
+    {
+        public BinaryTreeNodeWithSize(T data) { Data = data; Size = 1; }
+        public T Data { get; set; }
+        public BinaryTreeNodeWithSize<T> Left { get; set; }
+        public BinaryTreeNodeWithSize<T> Right { get; set; }
+        public int Size { get; set; }
+        public void UpdateSize() => Size = (Right?.Size ?? 0) + (Left?.Size ?? 0) + 1;
     }
 }

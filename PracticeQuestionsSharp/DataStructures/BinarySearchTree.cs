@@ -32,7 +32,7 @@ namespace PracticeQuestionsSharp.DataStructures
 
         public void Remove(T data)
         {
-            Remove(data, root);
+            root = Remove(data, root);
         }
 
         private BinaryTreeNode<T> Remove(T data, BinaryTreeNode<T> origin)
@@ -64,7 +64,6 @@ namespace PracticeQuestionsSharp.DataStructures
                 }
                 if (origin.Left == null) return origin.Right;
                 if (origin.Right == null) return origin.Left;
-
             }
 
             return null;
@@ -99,6 +98,7 @@ namespace PracticeQuestionsSharp.DataStructures
 
         private void Print(BinaryTreeNode<T> origin) //In order traversal
         {
+            if (origin == null) return;
             if (origin.Left != null) Print(origin.Left);
 
             Console.WriteLine(origin.Data);

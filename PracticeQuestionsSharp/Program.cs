@@ -176,12 +176,26 @@ namespace PracticeQuestionsSharp
             intAvl.Remove(3);
             intAvl.PrintAll(true);
             Console.WriteLine("-----");
-            //TODO: add avl tests
             */
             var randTree = new BinaryTreeRandomElement<int>();
 
-            randTree.Insert(3).Insert(5).Insert(-1).Insert(4).Insert(-6).Insert(8);
-            Console.WriteLine(randTree.GetRandom());
+            randTree.Insert(2).Insert(4).Insert(1).Insert(6).Insert(3).Insert(0).Insert(5);
+
+            int[] intCounts = {0,0,0,0,0,0,0};
+            int[] intCounts2 = {0,0,0,0,0,0,0};
+
+            for (int i = 0; i < 10000; ++i) intCounts[randTree.GetRandom()]++;
+            for (int i = 0; i < 10000; ++i) intCounts2[randTree.GetRandom2()]++;
+
+            Console.WriteLine("GetRandom() results:");
+            for (int i = 0; i < 7; ++i) Console.WriteLine($"{i}: {intCounts[i]}");
+            Profiler.ProfileAndExecute(() => randTree.GetRandom(), 1000000, "GetRandom()");
+
+            Console.WriteLine("GetRandom2() results:");
+            for (int i = 0; i < 7; ++i) Console.WriteLine($"{i}: {intCounts2[i]}");
+            Profiler.ProfileAndExecute(() => randTree.GetRandom2(), 1000000, "GetRandom2()");
+
+            //TODO: Add tests for Binary tree, AVL tree and Minheap
         }
     }
 }
