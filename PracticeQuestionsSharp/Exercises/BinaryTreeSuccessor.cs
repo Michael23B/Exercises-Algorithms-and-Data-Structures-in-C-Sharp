@@ -1,10 +1,12 @@
-﻿namespace PracticeQuestionsSharp.Exercises
+﻿using System;
+
+namespace PracticeQuestionsSharp.Exercises
 {
     //Write an algorithm to find the "next" node (in-order successor) of a given node in a binary search tree.
     //You may assume that each node has a link to it's parent
     public static class BinaryTreeSuccessor
     {
-        public static BinaryTreeNodeWithParent<T> Successor<T>(this BinaryTreeNodeWithParent<T> node)
+        public static BinaryTreeNodeWithParent<T> Successor<T>(this BinaryTreeNodeWithParent<T> node) where T : IComparable<T>
         {
             if (node.Right != null) return MinNode(node.Right);
 
@@ -18,14 +20,14 @@
             return null;
         }
 
-        private static BinaryTreeNodeWithParent<T> MinNode<T>(BinaryTreeNodeWithParent<T> node)
+        private static BinaryTreeNodeWithParent<T> MinNode<T>(BinaryTreeNodeWithParent<T> node) where T : IComparable<T>
         {
             while (node.Left != null) node = node.Left;
             return node;
         }
     }
 
-    public class BinaryTreeNodeWithParent<T>
+    public class BinaryTreeNodeWithParent<T> where T : IComparable<T>
     {
         public BinaryTreeNodeWithParent(T data) { Data = data; }
         public T Data { get; set; }

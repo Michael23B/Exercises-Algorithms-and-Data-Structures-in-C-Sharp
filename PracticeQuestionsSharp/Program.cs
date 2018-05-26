@@ -198,7 +198,10 @@ namespace PracticeQuestionsSharp
             //TODO: Add tests for Binary tree and AVL tree
 
             int[] sorted = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+            int[] sortedSubtree = {1,2,3,4,5};
             BinaryTreeNodeWithParent<int> generatedIntTree = BinaryTreeFromSortedArray.GenerateIntegerTree(sorted);
+            BinaryTreeNodeWithParent<int> generatedIntSubTree = BinaryTreeFromSortedArray.GenerateIntegerTree(sortedSubtree);
+
             var currNode = generatedIntTree;
             while (currNode.Left != null) currNode = currNode.Left;
             while (currNode != null)
@@ -206,6 +209,8 @@ namespace PracticeQuestionsSharp
                 Console.WriteLine(currNode.Data);
                 currNode = currNode.Successor();
             }
+
+            Console.WriteLine(generatedIntSubTree.IsSubtreeOf(generatedIntTree));
         }
     }
 }
