@@ -38,7 +38,7 @@ namespace UnitTests
             MinHeap<int> heap = new MinHeap<int>();
 
             //Act
-            heap.Insert(3);
+            heap.Insert(3).Insert(5);
 
             //Assert
             Assert.AreEqual(3, heap.Peek());
@@ -75,6 +75,22 @@ namespace UnitTests
 
             //Assert
             Assert.ThrowsException<InvalidOperationException>(() => heap.ExtractMin());
+        }
+
+        [TestMethod]
+        public void ExtractFromHeapReturnsCorrectItem()
+        {
+            //Arrange
+            MinHeap<int> heap = new MinHeap<int>();
+
+            //Act
+            heap.Insert(5).Insert(10).Insert(0).Insert(20);
+
+            //Assert
+            Assert.AreEqual(0, heap.ExtractMin());
+            Assert.AreEqual(5, heap.ExtractMin());
+            Assert.AreEqual(10, heap.ExtractMin());
+            Assert.AreEqual(20, heap.ExtractMin());
         }
 
         [TestMethod]

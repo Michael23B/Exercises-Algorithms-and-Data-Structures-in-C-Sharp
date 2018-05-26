@@ -176,7 +176,7 @@ namespace PracticeQuestionsSharp
             intAvl.Remove(3);
             intAvl.PrintAll(true);
             Console.WriteLine("-----");
-            */
+            
             var randTree = new BinaryTreeRandomElement<int>();
 
             randTree.Insert(2).Insert(4).Insert(1).Insert(6).Insert(3).Insert(0).Insert(5);
@@ -194,8 +194,18 @@ namespace PracticeQuestionsSharp
             Console.WriteLine("GetRandom2() results:");
             for (int i = 0; i < 7; ++i) Console.WriteLine($"{i}: {intCounts2[i]}");
             Profiler.ProfileAndExecute(() => randTree.GetRandom2(), 1000000, "GetRandom2()");
-
+            */
             //TODO: Add tests for Binary tree and AVL tree
+
+            int[] sorted = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+            BinaryTreeNodeWithParent<int> generatedIntTree = BinaryTreeFromSortedArray.GenerateIntegerTree(sorted);
+            var currNode = generatedIntTree;
+            while (currNode.Left != null) currNode = currNode.Left;
+            while (currNode != null)
+            {
+                Console.WriteLine(currNode.Data);
+                currNode = currNode.Successor();
+            }
         }
     }
 }
