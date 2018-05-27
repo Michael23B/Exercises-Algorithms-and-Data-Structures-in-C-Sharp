@@ -197,11 +197,11 @@ namespace PracticeQuestionsSharp
             */
             //TODO: Add tests for Binary tree and AVL tree
 
-            int[] sorted = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+            int[] sorted = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10}; //12, 18
             int[] sortedSubtree = {1,2,3,4,5};
             BinaryTreeNodeWithParent<int> generatedIntTree = BinaryTreeFromSortedArray.GenerateIntegerTree(sorted);
             BinaryTreeNodeWithParent<int> generatedIntSubTree = BinaryTreeFromSortedArray.GenerateIntegerTree(sortedSubtree);
-
+            /*
             var currNode = generatedIntTree;
             while (currNode.Left != null) currNode = currNode.Left;
             while (currNode != null)
@@ -211,6 +211,21 @@ namespace PracticeQuestionsSharp
             }
 
             Console.WriteLine(generatedIntSubTree.IsSubtreeOf(generatedIntTree));
+            */
+            var pathsWithSum = generatedIntTree.PathsWithSum(30);
+
+            if (pathsWithSum != null)
+            {
+                foreach (var path in pathsWithSum)
+                {
+                    foreach (var node in path)
+                    {
+                        Console.Write($"{node.Data}, ");
+                    }
+                    Console.WriteLine();
+                }
+            }
+            
         }
     }
 }
