@@ -212,7 +212,7 @@ namespace PracticeQuestionsSharp
 
             Console.WriteLine(generatedIntSubTree.IsSubtreeOf(generatedIntTree));
             */
-            var pathsWithSum = generatedIntTree.PathsWithSum(30);
+            var pathsWithSum = generatedIntTree.PathsWithSum(9);
 
             if (pathsWithSum != null)
             {
@@ -225,7 +225,6 @@ namespace PracticeQuestionsSharp
                     Console.WriteLine();
                 }
             }
-            
         }
     }
 }
