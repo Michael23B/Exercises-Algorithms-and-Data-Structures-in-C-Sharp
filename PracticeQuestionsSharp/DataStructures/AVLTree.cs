@@ -4,6 +4,30 @@ namespace PracticeQuestionsSharp.DataStructures
 {
     public class AVLTree<T> where T : IComparable<T>
     {
+        public bool Find(T data)
+        {
+            var node = root;
+
+            while (node != null)
+            {
+                int compResult = data.CompareTo(node.Data);
+                if (compResult == 0) return true;
+
+                if (compResult < 0)
+                {
+                    if (node.Left == null) return false;
+                    node = node.Left;
+                }
+                else if (compResult > 0)
+                {
+                    if (node.Right == null) return false;
+                    node = node.Right;
+                }
+            }
+
+            return false;
+        }
+
         public AVLTree<T> Insert(T data)
         {
             if (data == null) return null;
