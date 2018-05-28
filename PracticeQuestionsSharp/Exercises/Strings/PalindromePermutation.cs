@@ -1,6 +1,6 @@
 ﻿using PracticeQuestionsSharp.Helper;
 
-namespace PracticeQuestionsSharp.Exercises
+namespace PracticeQuestionsSharp.Exercises.Strings
 {
     public static class PalindromePermutation
     {

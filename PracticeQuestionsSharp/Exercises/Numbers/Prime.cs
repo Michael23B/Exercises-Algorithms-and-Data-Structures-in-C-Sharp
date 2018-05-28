@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace PracticeQuestionsSharp.Exercises
+namespace PracticeQuestionsSharp.Exercises.Numbers
 {
     //Print all primes to n
     public static class Prime

@@ -4,7 +4,7 @@
 //Customers can request either a cat, a dog or any animal. They receive the oldest of that type.
 //Implement a queue with the following operations: enqueue, dequeueAny, dequeueDog and dequeueCat.
 
-namespace PracticeQuestionsSharp.Exercises
+namespace PracticeQuestionsSharp.Exercises.Queue
 {
     public class QueueAnimalShelter
     {

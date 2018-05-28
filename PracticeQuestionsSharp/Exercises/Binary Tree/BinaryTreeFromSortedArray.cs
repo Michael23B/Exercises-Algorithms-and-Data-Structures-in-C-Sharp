@@ -1,6 +1,6 @@
 ﻿using System.Linq;
 
-namespace PracticeQuestionsSharp.Exercises
+namespace PracticeQuestionsSharp.Exercises.Binary_Tree
 {
     public static class BinaryTreeFromSortedArray
     {

@@ -6,6 +6,8 @@ using System.Text;
 using PracticeQuestionsSharp.Algorithms;
 using PracticeQuestionsSharp.DataStructures;
 using PracticeQuestionsSharp.Exercises;
+using PracticeQuestionsSharp.Exercises.Binary_Tree;
+using PracticeQuestionsSharp.Exercises.Numbers;
 using PracticeQuestionsSharp.Helper;
 
 namespace PracticeQuestionsSharp
@@ -194,14 +196,12 @@ namespace PracticeQuestionsSharp
             Console.WriteLine("GetRandom2() results:");
             for (int i = 0; i < 7; ++i) Console.WriteLine($"{i}: {intCounts2[i]}");
             Profiler.ProfileAndExecute(() => randTree.GetRandom2(), 1000000, "GetRandom2()");
-            */
-            //TODO: Add tests for Binary tree and AVL tree
 
             int[] sorted = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10}; //12, 18
             int[] sortedSubtree = {1,2,3,4,5};
             BinaryTreeNodeWithParent<int> generatedIntTree = BinaryTreeFromSortedArray.GenerateIntegerTree(sorted);
             BinaryTreeNodeWithParent<int> generatedIntSubTree = BinaryTreeFromSortedArray.GenerateIntegerTree(sortedSubtree);
-            /*
+
             var currNode = generatedIntTree;
             while (currNode.Left != null) currNode = currNode.Left;
             while (currNode != null)
@@ -211,7 +211,7 @@ namespace PracticeQuestionsSharp
             }
 
             Console.WriteLine(generatedIntSubTree.IsSubtreeOf(generatedIntTree));
-            */
+
             var pathsWithSum = generatedIntTree.PathsWithSum(9);
 
             if (pathsWithSum != null)
@@ -225,6 +225,10 @@ namespace PracticeQuestionsSharp
                     Console.WriteLine();
                 }
             }
+            */
+            int[] sortedArrRotated = {4, 5, 6, 7, 0, 1, 2};
+
+            Console.WriteLine(RotatedArrayMin.MininumInRotatedSortedArray(sortedArrRotated));
         }
     }
 }

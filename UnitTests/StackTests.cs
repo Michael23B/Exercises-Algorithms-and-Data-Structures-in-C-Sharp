@@ -2,6 +2,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using PracticeQuestionsSharp.DataStructures;
 using PracticeQuestionsSharp.Exercises;
+using PracticeQuestionsSharp.Exercises.Stack;
 
 namespace UnitTests
 {

@@ -1,7 +1,7 @@
 ﻿using System;
 using PracticeQuestionsSharp.DataStructures;
 
-namespace PracticeQuestionsSharp.Exercises
+namespace PracticeQuestionsSharp.Exercises.Binary_Tree
 {
     //Create a Binary Tree class from scratch with Insert, Remove and Find methods.
     //In addition, add a GetRandom() method that returns a random node. All nodes should be equally likely to be chosen.

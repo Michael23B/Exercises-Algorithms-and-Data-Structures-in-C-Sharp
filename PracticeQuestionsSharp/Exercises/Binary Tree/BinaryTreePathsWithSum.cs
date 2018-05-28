@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using NodePath = System.Collections.Generic.List<PracticeQuestionsSharp.Exercises.BinaryTreeNodeWithParent<int>>;
+using NodePath = System.Collections.Generic.List<PracticeQuestionsSharp.Exercises.Binary_Tree.BinaryTreeNodeWithParent<int>>;
 
-namespace PracticeQuestionsSharp.Exercises
+namespace PracticeQuestionsSharp.Exercises.Binary_Tree
 {
     //Given a binary tree, find all paths (from a node to a leaf) that sum to a given number.
     public static class BinaryTreePathsWithSum

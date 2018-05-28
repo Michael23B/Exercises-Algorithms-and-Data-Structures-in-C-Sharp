@@ -1,6 +1,6 @@
 ﻿using PracticeQuestionsSharp.DataStructures;
 
-namespace PracticeQuestionsSharp.Exercises
+namespace PracticeQuestionsSharp.Exercises.Linked_List
 {
     public static class LinkedListsSum
     {

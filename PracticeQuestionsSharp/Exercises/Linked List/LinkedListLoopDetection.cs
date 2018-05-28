@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using PracticeQuestionsSharp.DataStructures;
 
-namespace PracticeQuestionsSharp.Exercises
+namespace PracticeQuestionsSharp.Exercises.Linked_List
 {
     //Given a circular linked list return the point that the loop begins
     public static class LinkedListLoopDetection

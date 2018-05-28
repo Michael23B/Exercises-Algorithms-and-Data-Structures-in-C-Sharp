@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using PracticeQuestionsSharp.DataStructures;
 
-namespace PracticeQuestionsSharp.Exercises
+namespace PracticeQuestionsSharp.Exercises.Binary_Tree
 {
     public static class BinaryTreeDepthLists
     {

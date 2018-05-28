@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using PracticeQuestionsSharp.Helper;
 
-namespace PracticeQuestionsSharp.Exercises
+namespace PracticeQuestionsSharp.Exercises.Strings
 {
     //Check if a string is made of distinct characters
     public static class UniqueChars

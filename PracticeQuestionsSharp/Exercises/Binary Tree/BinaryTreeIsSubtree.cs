@@ -1,7 +1,7 @@
 ﻿using System;
 using PracticeQuestionsSharp.DataStructures;
 
-namespace PracticeQuestionsSharp.Exercises
+namespace PracticeQuestionsSharp.Exercises.Binary_Tree
 {
     //Find whether a binary tree is a subtree of another binary tree.
     //This implementation defines subtree as sharing the same data for each node

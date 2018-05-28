@@ -1,4 +1,4 @@
-﻿namespace PracticeQuestionsSharp.Exercises
+﻿namespace PracticeQuestionsSharp.Exercises.Numbers
 {
     public static class Fibonacci
     {

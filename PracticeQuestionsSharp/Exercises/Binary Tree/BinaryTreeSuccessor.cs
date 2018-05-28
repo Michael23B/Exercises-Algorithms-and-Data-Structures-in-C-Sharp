@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace PracticeQuestionsSharp.Exercises
+namespace PracticeQuestionsSharp.Exercises.Binary_Tree
 {
     //Write an algorithm to find the "next" node (in-order successor) of a given node in a binary search tree.
     //You may assume that each node has a link to it's parent
