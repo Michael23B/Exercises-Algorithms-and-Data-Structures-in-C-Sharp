@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Net;
 
 namespace PracticeQuestionsSharp.DataStructures
 {
@@ -257,6 +259,26 @@ namespace PracticeQuestionsSharp.DataStructures
 
             if (origin.Left != null) PrintLevel(origin.Left, level + 1, printQueue);
             if (origin.Right != null) PrintLevel(origin.Right, level + 1, printQueue);
+        }
+        #endregion
+
+        #region Traversal
+        public List<T> GetOrderedList()
+        {
+            List<T> orderedList = new List<T>();
+
+            InOrderTraversal(root, ref orderedList);
+
+            return orderedList;
+        }
+
+        private void InOrderTraversal(AVLTreeNode<T> origin, ref List<T> orderedList)
+        {
+            if (origin == null) return;
+
+            InOrderTraversal(origin.Left, ref orderedList);
+            orderedList.Add(origin.Data);
+            InOrderTraversal(origin.Right, ref orderedList);
         }
         #endregion
 
