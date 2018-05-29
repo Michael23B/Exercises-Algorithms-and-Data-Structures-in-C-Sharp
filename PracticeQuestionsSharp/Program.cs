@@ -7,6 +7,7 @@ using PracticeQuestionsSharp.Algorithms;
 using PracticeQuestionsSharp.DataStructures;
 using PracticeQuestionsSharp.Exercises;
 using PracticeQuestionsSharp.Exercises.Binary_Tree;
+using PracticeQuestionsSharp.Exercises.Linked_List;
 using PracticeQuestionsSharp.Exercises.Numbers;
 using PracticeQuestionsSharp.Exercises.Strings;
 using PracticeQuestionsSharp.Helper;
@@ -230,8 +231,26 @@ namespace PracticeQuestionsSharp
             int[] sortedArrRotated = { 6, 7, 0, 1, 2, 4, 5, };
 
             Console.WriteLine(RotatedArrayMin.MinimumInRotatedSortedArray(sortedArrRotated));
-            */
+            
             Console.WriteLine(StringToInt.Atoi("     +123k4"));
+            */
+
+            DataStructures.LinkedList<int> list1 = new DataStructures.LinkedList<int>();
+            DataStructures.LinkedList<int> list2 = new DataStructures.LinkedList<int>();
+            DataStructures.LinkedList<int> list3 = new DataStructures.LinkedList<int>();
+            list1.Add(1);
+            list1.Add(2);
+            list1.Add(3);
+            list1.Add(4);
+            list2.Add(0);
+            list2.Add(2);
+            list3.Add(3);
+            list3.Add(3);
+            list3.Add(7);
+
+            var newlist = MergeKSortedLists.MergeSortedLists(new[] {list1.Head, list2.Head, list3.Head});
+
+            newlist.Print();
         }
     }
 }
