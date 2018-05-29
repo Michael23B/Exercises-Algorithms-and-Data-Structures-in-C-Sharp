@@ -8,6 +8,7 @@ using PracticeQuestionsSharp.DataStructures;
 using PracticeQuestionsSharp.Exercises;
 using PracticeQuestionsSharp.Exercises.Binary_Tree;
 using PracticeQuestionsSharp.Exercises.Numbers;
+using PracticeQuestionsSharp.Exercises.Strings;
 using PracticeQuestionsSharp.Helper;
 
 namespace PracticeQuestionsSharp
@@ -225,10 +226,12 @@ namespace PracticeQuestionsSharp
                     Console.WriteLine();
                 }
             }
-            */
-            int[] sortedArrRotated = {4, 5, 6, 7, 0, 1, 2};
+            
+            int[] sortedArrRotated = { 6, 7, 0, 1, 2, 4, 5, };
 
-            Console.WriteLine(RotatedArrayMin.MininumInRotatedSortedArray(sortedArrRotated));
+            Console.WriteLine(RotatedArrayMin.MinimumInRotatedSortedArray(sortedArrRotated));
+            */
+            Console.WriteLine(StringToInt.Atoi("     +123k4"));
         }
     }
 }
