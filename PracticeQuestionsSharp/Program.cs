@@ -233,7 +233,7 @@ namespace PracticeQuestionsSharp
             Console.WriteLine(RotatedArrayMin.MinimumInRotatedSortedArray(sortedArrRotated));
             
             Console.WriteLine(StringToInt.Atoi("     +123k4"));
-            */
+            
 
             DataStructures.LinkedList<int> list1 = new DataStructures.LinkedList<int>();
             DataStructures.LinkedList<int> list2 = new DataStructures.LinkedList<int>();
@@ -251,6 +251,12 @@ namespace PracticeQuestionsSharp
             var newlist = MergeKSortedLists.MergeSortedLists(new[] {list1.Head, list2.Head, list3.Head});
 
             newlist.Print();
+            */
+
+            string text = "0011001011";
+            string pattern = "0101";
+
+            Console.Write(text.KMPFindIndexOf(pattern));
         }
     }
 }
