@@ -22,7 +22,7 @@
                 {
                     //Character matched, increment and check if we are done
                     matches++;
-                    if (matches == pattern.Length) return i - matches - 1;
+                    if (matches == pattern.Length) return i - (matches - 1);
                 }
             }
 

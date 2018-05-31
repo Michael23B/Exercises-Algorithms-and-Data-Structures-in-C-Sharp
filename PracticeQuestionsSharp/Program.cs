@@ -9,6 +9,7 @@ using PracticeQuestionsSharp.Exercises;
 using PracticeQuestionsSharp.Exercises.Binary_Tree;
 using PracticeQuestionsSharp.Exercises.Linked_List;
 using PracticeQuestionsSharp.Exercises.Numbers;
+using PracticeQuestionsSharp.Exercises.Stack;
 using PracticeQuestionsSharp.Exercises.Strings;
 using PracticeQuestionsSharp.Helper;
 
@@ -251,12 +252,20 @@ namespace PracticeQuestionsSharp
             var newlist = MergeKSortedLists.MergeSortedLists(new[] {list1.Head, list2.Head, list3.Head});
 
             newlist.Print();
-            */
 
             string text = "0011001011";
             string pattern = "0101";
 
             Console.Write(text.KMPFindIndexOf(pattern));
+            */
+            MinStack<int> minStack = new MinStack<int>();
+            minStack.Push(5).Push(2).Push(9).Push(2).Push(1);
+
+            while (!minStack.IsEmpty)
+            {
+                Console.Write(minStack.Min());
+                minStack.Pop();
+            }
         }
     }
 }
