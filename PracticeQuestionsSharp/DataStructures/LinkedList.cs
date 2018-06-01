@@ -261,7 +261,7 @@ namespace PracticeQuestionsSharp.DataStructures
         public IEnumerator<T> GetEnumerator()
         {
             Node<T> n = Head;
-            while (n.Next != null)
+            while (n != null)
             {
                 yield return n.Data;
                 n = n.Next;

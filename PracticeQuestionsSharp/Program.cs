@@ -274,7 +274,7 @@ namespace PracticeQuestionsSharp
             intList.Add(4);
             intList.Add(5);
 
-            intList = intList.PartitionAround(5);
+            intList = intList.PartitionAround1(5);
             intList.Print();
         }
     }
