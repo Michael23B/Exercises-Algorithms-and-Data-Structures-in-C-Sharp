@@ -257,7 +257,7 @@ namespace PracticeQuestionsSharp
             string pattern = "0101";
 
             Console.Write(text.KMPFindIndexOf(pattern));
-            */
+            
             MinStack<int> minStack = new MinStack<int>();
             minStack.Push(5).Push(2).Push(9).Push(2).Push(1);
 
@@ -266,6 +266,16 @@ namespace PracticeQuestionsSharp
                 Console.Write(minStack.Min());
                 minStack.Pop();
             }
+            */
+            DataStructures.LinkedList<int> intList = new DataStructures.LinkedList<int>();
+            intList.Add(3);
+            intList.Add(-1);
+            intList.Add(8);
+            intList.Add(4);
+            intList.Add(5);
+
+            intList = intList.PartitionAround(5);
+            intList.Print();
         }
     }
 }
