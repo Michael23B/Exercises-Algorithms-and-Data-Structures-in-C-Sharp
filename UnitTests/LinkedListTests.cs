@@ -1,9 +1,6 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using PracticeQuestionsSharp.DataStructures;
-using PracticeQuestionsSharp.Exercises;
 using PracticeQuestionsSharp.Exercises.Linked_List;
-
-//TODO: Add enumeration tests
 
 namespace UnitTests
 {
@@ -424,6 +421,32 @@ namespace UnitTests
             Assert.AreEqual(4, list.Head.Next.Next.Next.Data);
             Assert.AreEqual(5, list.Head.Next.Next.Next.Next.Data);
             Assert.AreEqual(list.Tail, list.Head.Next.Next.Next.Next);
+        }
+
+        [TestMethod]
+        public void ListEnumeratesCorrectly()
+        {
+            //Arrange
+            LinkedList<int> list = new LinkedList<int>();
+
+            //Act
+            list.Add(1);
+            list.Add(2);
+            list.Add(3);
+            list.Add(4);
+
+            //Assert
+            using (var listEnumerator = list.GetEnumerator())
+            {
+                listEnumerator.MoveNext();
+                Assert.AreEqual(1, listEnumerator.Current);
+                listEnumerator.MoveNext();
+                Assert.AreEqual(2, listEnumerator.Current);
+                listEnumerator.MoveNext();
+                Assert.AreEqual(3, listEnumerator.Current);
+                listEnumerator.MoveNext();
+                Assert.AreEqual(4, listEnumerator.Current);
+            }
         }
     }
 
