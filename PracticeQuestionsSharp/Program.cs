@@ -7,6 +7,7 @@ using PracticeQuestionsSharp.Algorithms;
 using PracticeQuestionsSharp.DataStructures;
 using PracticeQuestionsSharp.Exercises;
 using PracticeQuestionsSharp.Exercises.Binary_Tree;
+using PracticeQuestionsSharp.Exercises.Bits;
 using PracticeQuestionsSharp.Exercises.Linked_List;
 using PracticeQuestionsSharp.Exercises.Numbers;
 using PracticeQuestionsSharp.Exercises.Stack;
@@ -266,7 +267,7 @@ namespace PracticeQuestionsSharp
                 Console.Write(minStack.Min());
                 minStack.Pop();
             }
-            */
+            
             DataStructures.LinkedList<int> intList = new DataStructures.LinkedList<int>();
             intList.Add(3);
             intList.Add(-1);
@@ -276,6 +277,11 @@ namespace PracticeQuestionsSharp
 
             intList = intList.PartitionAround1(5);
             intList.Print();
+            */
+
+            UInt32 uint1 = 64;
+            UInt32 uint2 = 8;
+            Console.Write(uint2.InsertBitInto(uint1, 1, 5));
         }
     }
 }
