@@ -236,7 +236,6 @@ namespace PracticeQuestionsSharp
             
             Console.WriteLine(StringToInt.Atoi("     +123k4"));
             
-
             DataStructures.LinkedList<int> list1 = new DataStructures.LinkedList<int>();
             DataStructures.LinkedList<int> list2 = new DataStructures.LinkedList<int>();
             DataStructures.LinkedList<int> list3 = new DataStructures.LinkedList<int>();
@@ -277,11 +276,14 @@ namespace PracticeQuestionsSharp
 
             intList = intList.PartitionAround1(5);
             intList.Print();
-            */
+            
 
             UInt32 uint1 = 64;
             UInt32 uint2 = 8;
             Console.Write(uint2.InsertBitInto(uint1, 1, 5));
+            */
+            Console.WriteLine(0.75233.DoubleToBinaryString());
+            Console.WriteLine(0.8.DoubleToBinaryString());
         }
     }
 }
