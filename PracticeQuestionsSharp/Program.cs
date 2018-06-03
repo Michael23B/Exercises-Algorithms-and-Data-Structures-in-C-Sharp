@@ -284,8 +284,31 @@ namespace PracticeQuestionsSharp
             
             Console.WriteLine(0.00001.DoubleToBinaryString());
             Console.WriteLine(0.5.DoubleToBinaryString());
-            */
+            
             Console.WriteLine(52.LongestSequence());
+
+            //Explain what the following code does: ((n & (n -1)) == 0)
+            int n;
+            Console.WriteLine("Enter a non-integer to quit.");
+            while (true)
+            {
+                try { n = int.Parse(Console.ReadLine()); }
+                catch (Exception) { break; }
+                Console.WriteLine($"{Convert.ToString(n, 2)} & {Convert.ToString(n - 1, 2)} == 0 ? {(n & (n - 1)) == 0}");
+            }
+            //The code checks if n is a power of two since powers of two are represented as a 1 followed only by 0s.
+            //Taking 1 away removes the first 1 and changes all the 0s to 1s meaning the & matches no digits and results in 0.
+            
+            Console.WriteLine(0.IsPowerOfTwo());
+            Console.WriteLine(1.IsPowerOfTwo());
+            Console.WriteLine(2.IsPowerOfTwo());
+            Console.WriteLine(3.IsPowerOfTwo());
+            Console.WriteLine(4.IsPowerOfTwo());
+            Console.WriteLine(512.IsPowerOfTwo());
+            Console.WriteLine(511.IsPowerOfTwo());
+            Console.WriteLine(513.IsPowerOfTwo());
+            Console.WriteLine(1024.IsPowerOfTwo());
+            */
         }
     }
 }
