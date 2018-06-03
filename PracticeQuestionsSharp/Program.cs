@@ -282,8 +282,8 @@ namespace PracticeQuestionsSharp
             UInt32 uint2 = 8;
             Console.Write(uint2.InsertBitInto(uint1, 1, 5));
             */
-            Console.WriteLine(0.75233.DoubleToBinaryString());
-            Console.WriteLine(0.8.DoubleToBinaryString());
+            Console.WriteLine(0.00001.DoubleToBinaryString());
+            Console.WriteLine(0.5.DoubleToBinaryString());
         }
     }
 }

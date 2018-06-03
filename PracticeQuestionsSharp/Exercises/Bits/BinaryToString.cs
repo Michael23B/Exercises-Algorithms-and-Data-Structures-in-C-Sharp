@@ -9,35 +9,28 @@ namespace PracticeQuestionsSharp.Exercises.Bits
     {
         public static string DoubleToBinaryString(this double d)
         {
-            StringBuilder sb = new StringBuilder();
-            double rounded = Math.Floor(d);
-
-            //Keep multiplying by ten until we have a whole number
-            while (d - rounded != 0)
-            {
-                d *= 10;
-                rounded = Math.Floor(d);
-            }
+            StringBuilder sb = new StringBuilder().Append("0.");
 
             //Convert to binary
-            double place = Math.Pow(2, 32);
-            while (place >= 1)
+            double fraction = 0.5;
+            //Arbitrary limit since we may not reach zero in floating point representation
+            while (d >= 0.00001 && sb.Length <= 32)
             {
-                if (d >= place)
+                if (d >= fraction)
                 {
                     sb.Append(1);
-                    d -= place;
+                    d -= fraction;
                 }
                 else
                 {
-                    if (sb.Length > 0) sb.Append(0);
+                    sb.Append(0);
                 }
 
-                place /= 2;
+                fraction /= 2;
             }
 
             //Remainder, couldn't fit into 32 characters
-            if (d > 0) return "ERROR.";
+            if (d >= 0.00001) return "ERROR.";
 
             return sb.ToString();
         }
