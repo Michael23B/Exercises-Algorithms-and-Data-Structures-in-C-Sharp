@@ -284,9 +284,18 @@ namespace PracticeQuestionsSharp
             
             Console.WriteLine(0.00001.DoubleToBinaryString());
             Console.WriteLine(0.5.DoubleToBinaryString());
-            
+            Console.WriteLine(Convert.ToString(0, 2));
+            Console.WriteLine(0.LongestSequence());
+            Console.WriteLine(Convert.ToString(1, 2));
+            Console.WriteLine(1.LongestSequence());
+            Console.WriteLine(Convert.ToString(2, 2));
+            Console.WriteLine(2.LongestSequence());
+            Console.WriteLine(Convert.ToString(3, 2));
+            Console.WriteLine(3.LongestSequence());
+            Console.WriteLine(Convert.ToString(8, 2));
+            Console.WriteLine(8.LongestSequence());
+            Console.WriteLine(Convert.ToString(52, 2));
             Console.WriteLine(52.LongestSequence());
-
             //Explain what the following code does: ((n & (n -1)) == 0)
             int n;
             Console.WriteLine("Enter a non-integer to quit.");
