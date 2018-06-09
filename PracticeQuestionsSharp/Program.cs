@@ -317,10 +317,16 @@ namespace PracticeQuestionsSharp
             Console.WriteLine(511.IsPowerOfTwo());
             Console.WriteLine(513.IsPowerOfTwo());
             Console.WriteLine(1024.IsPowerOfTwo());
-            */
+            
             Console.WriteLine(Convert.ToString(1046, 2));
             Console.WriteLine("00" + Convert.ToString(333, 2));
             Console.WriteLine(1046.CountFlipsToConvertTo(333));
+            */
+
+            Console.WriteLine(10.SwapBits());
+            Console.WriteLine(8.SwapBits());
+            Console.WriteLine(0.SwapBits());
+            Console.WriteLine(1.SwapBits());
         }
     }
 }
