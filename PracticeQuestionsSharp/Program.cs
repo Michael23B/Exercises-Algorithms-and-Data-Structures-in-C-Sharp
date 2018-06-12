@@ -14,6 +14,8 @@ using PracticeQuestionsSharp.Exercises.Stack;
 using PracticeQuestionsSharp.Exercises.Strings;
 using PracticeQuestionsSharp.Helper;
 
+//This file is just for testing solutions
+
 namespace PracticeQuestionsSharp
 {
     class Program
@@ -329,6 +331,15 @@ namespace PracticeQuestionsSharp
             Console.WriteLine(1.SwapBits());
             */
 
+            byte[] screen = new byte[20];
+            DrawLine.DrawBitLine(ref screen, 8, 25, 55, 0);
+
+            foreach (byte b in screen)
+            {
+                Console.Write('[');
+                Console.Write(Convert.ToString(b, 2));
+                Console.Write("], ");
+            }
         }
     }
 }
