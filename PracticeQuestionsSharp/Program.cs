@@ -329,7 +329,7 @@ namespace PracticeQuestionsSharp
             Console.WriteLine(8.SwapBits());
             Console.WriteLine(0.SwapBits());
             Console.WriteLine(1.SwapBits());
-            */
+            
 
             byte[] screen = new byte[20];
             DrawLine.DrawBitLine(ref screen, 8, 25, 55, 0);
@@ -339,6 +339,15 @@ namespace PracticeQuestionsSharp
                 Console.Write('[');
                 Console.Write(Convert.ToString(b, 2));
                 Console.Write("], ");
+            }
+            */
+
+            int[] unshuffled = {1, 2, 3, 4, 5, 6, 7, 8};
+            int[] shuffled = (int[])unshuffled.Shuffle();
+
+            foreach (int i in shuffled)
+            {
+                Console.Write($"{i},");
             }
         }
     }
