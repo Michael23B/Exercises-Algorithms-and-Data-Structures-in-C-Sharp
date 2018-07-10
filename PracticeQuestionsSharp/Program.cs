@@ -8,6 +8,7 @@ using PracticeQuestionsSharp.DataStructures;
 using PracticeQuestionsSharp.Exercises;
 using PracticeQuestionsSharp.Exercises.Binary_Tree;
 using PracticeQuestionsSharp.Exercises.Bits;
+using PracticeQuestionsSharp.Exercises.Dynamic_Programming;
 using PracticeQuestionsSharp.Exercises.Linked_List;
 using PracticeQuestionsSharp.Exercises.Numbers;
 using PracticeQuestionsSharp.Exercises.Stack;
@@ -348,7 +349,7 @@ namespace PracticeQuestionsSharp
             {
                 Console.Write($"{i},");
             }
-            */
+            
             List<Interval> intervalList = new List<Interval>
             {
                 new Interval {Max = 18, Min = 15},
@@ -362,6 +363,8 @@ namespace PracticeQuestionsSharp
             {
                 Console.Write($"[{i.Min},{i.Max}],");
             }
+            */
+            for (int i = 0; i < 100; ++i)Console.WriteLine($"{i} - {StaircaseSteps.StepPermutations(i)}");
         }
     }
 }
