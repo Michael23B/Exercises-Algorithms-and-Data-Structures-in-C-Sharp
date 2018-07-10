@@ -340,7 +340,6 @@ namespace PracticeQuestionsSharp
                 Console.Write(Convert.ToString(b, 2));
                 Console.Write("], ");
             }
-            */
 
             int[] unshuffled = {1, 2, 3, 4, 5, 6, 7, 8};
             int[] shuffled = (int[])unshuffled.Shuffle();
@@ -348,6 +347,20 @@ namespace PracticeQuestionsSharp
             foreach (int i in shuffled)
             {
                 Console.Write($"{i},");
+            }
+            */
+            List<Interval> intervalList = new List<Interval>
+            {
+                new Interval {Max = 18, Min = 15},
+                new Interval {Max = 3, Min = 1},
+                new Interval {Max = 10, Min = 8},
+                new Interval {Max = 6, Min = 2}
+            };
+
+            intervalList = (List<Interval>)intervalList.MergeOverlappingIntervals();
+            foreach (Interval i in intervalList)
+            {
+                Console.Write($"[{i.Min},{i.Max}],");
             }
         }
     }
