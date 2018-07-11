@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Path = System.Collections.Generic.List<int>;
 
 namespace PracticeQuestionsSharp.Exercises.Dynamic_Programming
@@ -37,6 +38,29 @@ namespace PracticeQuestionsSharp.Exercises.Dynamic_Programming
                 ClimbSteps(n, 2, currStepsTaken, new Path(currPath), paths);
                 ClimbSteps(n, 3, currStepsTaken, new Path(currPath), paths);
             }
+        }
+
+        //Recursive memoized
+        public static int StepPermutationsMemoized(int n)
+        {
+            int[] memoized = new int[n];
+            Array.Fill(memoized, -1);
+            return ClimbStepsMemoized(n, 1, memoized) +
+                   ClimbStepsMemoized(n, 2, memoized) +
+                   ClimbStepsMemoized(n, 3, memoized);
+        }
+
+        private static int ClimbStepsMemoized(int n, int stepSize, int[] memoized)
+        {
+            n -= stepSize;
+            if (n < 0) return 0; //Path is not valid
+            if (n == 0) return 1; //Path is valid
+
+            if (memoized[n] != -1) return memoized[n];
+
+            return memoized[n] = ClimbStepsMemoized(n, 1, memoized) +
+                                 ClimbStepsMemoized(n, 2, memoized) + 
+                                 ClimbStepsMemoized(n, 3, memoized);
         }
     }
 }

@@ -364,7 +364,12 @@ namespace PracticeQuestionsSharp
                 Console.Write($"[{i.Min},{i.Max}],");
             }
             */
-            for (int i = 0; i < 100; ++i)Console.WriteLine($"{i} - {StaircaseSteps.StepPermutations(i)}");
+            //Number of step permutations, non memoized vs memoized
+            for (int i = 0; i < 22; ++i)
+            {
+                Console.WriteLine(Profiler.ProfileAndExecute(() => StaircaseSteps.StepPermutations(i), 1, "Non memoized"));
+                Console.WriteLine(Profiler.ProfileAndExecute(() => StaircaseSteps.StepPermutationsMemoized(i), 1 , "Memoized"));
+            }
         }
     }
 }
