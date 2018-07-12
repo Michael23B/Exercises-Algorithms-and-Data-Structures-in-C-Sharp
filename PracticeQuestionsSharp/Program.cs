@@ -363,13 +363,16 @@ namespace PracticeQuestionsSharp
             {
                 Console.Write($"[{i.Min},{i.Max}],");
             }
-            */
+            
             //Number of step permutations, non memoized vs memoized
             for (int i = 0; i < 22; ++i)
             {
                 Console.WriteLine(Profiler.ProfileAndExecute(() => StaircaseSteps.StepPermutations(i), 1, "Non memoized"));
                 Console.WriteLine(Profiler.ProfileAndExecute(() => StaircaseSteps.StepPermutationsMemoized(i), 1 , "Memoized"));
             }
+            */
+            int[] orderedDistinctNumbers = {-5, -3, -2, -1, 0, 2, 5, 7, 10, 22};
+            Console.WriteLine(MagicIndex.FindMagicIndexBinarySearch(orderedDistinctNumbers));
         }
     }
 }
