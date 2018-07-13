@@ -370,9 +370,12 @@ namespace PracticeQuestionsSharp
                 Console.WriteLine(Profiler.ProfileAndExecute(() => StaircaseSteps.StepPermutations(i), 1, "Non memoized"));
                 Console.WriteLine(Profiler.ProfileAndExecute(() => StaircaseSteps.StepPermutationsMemoized(i), 1 , "Memoized"));
             }
-            */
+            
             int[] orderedDistinctNumbers = {-5, -3, -2, -1, 0, 2, 5, 7, 10, 22};
             Console.WriteLine(MagicIndex.FindMagicIndexBinarySearch(orderedDistinctNumbers));
+            */
+            int[] orderedNonDistinctNumbers = { -5, -5, 0, 0, 0, 3, 4, 4, 8, 8 };
+            Console.WriteLine(MagicIndex.FindNonDistinctMagicIndexBinarySearch(orderedNonDistinctNumbers));
         }
     }
 }
