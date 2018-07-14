@@ -373,9 +373,18 @@ namespace PracticeQuestionsSharp
             
             int[] orderedDistinctNumbers = {-5, -3, -2, -1, 0, 2, 5, 7, 10, 22};
             Console.WriteLine(MagicIndex.FindMagicIndexBinarySearch(orderedDistinctNumbers));
-            */
+            
             int[] orderedNonDistinctNumbers = { -5, -5, 0, 0, 0, 3, 4, 4, 8, 8 };
             Console.WriteLine(MagicIndex.FindNonDistinctMagicIndexBinarySearch(orderedNonDistinctNumbers));
+            */
+            var pSet = PowerSet.GetPowerSet(new[] { 'a', 'b', 'c', 'd' });
+            Console.WriteLine("Powerset for set:");
+            foreach (var subSet in pSet)
+            {
+                Console.Write('[');
+                foreach (var i in subSet) Console.Write(i == subSet.Last() ? $"{i}" : $"{i},");
+                Console.WriteLine(subSet == pSet.Last() ? "]" : "],");
+            }
         }
     }
 }
