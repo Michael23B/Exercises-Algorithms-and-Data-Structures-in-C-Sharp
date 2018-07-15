@@ -376,7 +376,7 @@ namespace PracticeQuestionsSharp
             
             int[] orderedNonDistinctNumbers = { -5, -5, 0, 0, 0, 3, 4, 4, 8, 8 };
             Console.WriteLine(MagicIndex.FindNonDistinctMagicIndexBinarySearch(orderedNonDistinctNumbers));
-            */
+            
             var pSet = PowerSet.GetPowerSet(new[] { 'a', 'b', 'c', 'd' });
             Console.WriteLine("Powerset for set:");
             foreach (var subSet in pSet)
@@ -385,6 +385,53 @@ namespace PracticeQuestionsSharp
                 foreach (var i in subSet) Console.Write(i == subSet.Last() ? $"{i}" : $"{i},");
                 Console.WriteLine(subSet == pSet.Last() ? "]" : "],");
             }
+            */
+            bool[,] grid = new bool[10, 10];
+            string[,] printedGrid = new string[10, 10];
+
+            for (int i = 0; i < grid.GetLength(0); ++i)
+            {
+                for (int j = 0; j < grid.GetLength(1); ++j)
+                {
+                    grid[i, j] = true;
+                    printedGrid[i, j] = "O";
+                }
+            }
+
+            grid[8, 9] = false;
+            grid[7, 8] = false;
+            grid[0, 1] = false;
+            grid[1, 1] = false;
+            grid[0, 2] = false;
+            grid[3, 0] = false;
+            grid[3, 1] = false;
+            grid[2, 5] = false;
+            grid[3, 4] = false;
+
+            printedGrid[8, 9] = "X";
+            printedGrid[7, 8] = "X";
+            printedGrid[0, 1] = "X";
+            printedGrid[1, 1] = "X";
+            printedGrid[0, 2] = "X";
+            printedGrid[3, 0] = "X";
+            printedGrid[3, 1] = "X";
+            printedGrid[2, 5] = "X";
+            printedGrid[3, 4] = "X";
+
+            var pathToBottomRight = grid.FindPathThroughGrid();
+
+            foreach (var xy in pathToBottomRight)
+            {
+                //Console.Write($"[{xy.Y},{xy.X}],");
+                printedGrid[xy.Y, xy.X] = "+";
+            }
+
+            for (int i = 0; i < printedGrid.GetLength(0); ++i)
+            {
+                for (int j = 0; j < printedGrid.GetLength(1); ++j)Console.Write(printedGrid[i, j]);
+                Console.WriteLine();
+            }
+
         }
     }
 }
