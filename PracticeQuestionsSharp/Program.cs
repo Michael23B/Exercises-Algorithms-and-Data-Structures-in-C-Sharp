@@ -431,7 +431,7 @@ namespace PracticeQuestionsSharp
                 for (int j = 0; j < printedGrid.GetLength(1); ++j)Console.Write(printedGrid[i, j]);
                 Console.WriteLine();
             }
-            */
+            
             Console.WriteLine(MultiplyWithBitShifting.Multiply(5, 6));
             Console.WriteLine(MultiplyWithBitShifting.Multiply(6, 5));
             Console.WriteLine(MultiplyWithBitShifting.Multiply(100, 10));
@@ -442,6 +442,10 @@ namespace PracticeQuestionsSharp
             Console.WriteLine(MultiplyWithBitShifting.Multiply(-100, 10));
             Console.WriteLine(MultiplyWithBitShifting.Multiply(-23, 1));
             Console.WriteLine(MultiplyWithBitShifting.Multiply(-15, -3));
+            */
+            string stringForPermutations = "abcd";
+            var permutations = stringForPermutations.DistinctStringPermutations();
+            foreach (var p in permutations) Console.WriteLine(p);
         }
     }
 }
