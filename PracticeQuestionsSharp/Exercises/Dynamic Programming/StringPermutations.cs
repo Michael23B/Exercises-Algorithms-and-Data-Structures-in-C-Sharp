@@ -7,7 +7,8 @@ namespace PracticeQuestionsSharp.Exercises.Dynamic_Programming
         //Compute all permutations of a string of unique characters
         public static List<string> DistinctStringPermutations(this string str)
         {
-            List<string> permutations = new List<string>();
+            //Helper.ExtensionMethods.Factorial(str.Length). Could set capacity to this but factorial overflows very quickly so its not that useful.
+            List<string> permutations = new List<string>(); 
             permutations.Add("");
 
             return AddPermutations(permutations, str);
@@ -21,8 +22,7 @@ namespace PracticeQuestionsSharp.Exercises.Dynamic_Programming
 
             foreach (string s in permutations)
             {
-                if (s.Length > 0) newPermutations.Add(str[0].ToString() + s[0]);
-                else newPermutations.Add(str[0].ToString());
+                newPermutations.Add(str[0] + s);
                 //Add our character after each character in this permutation to create the new permutation
                 for (int i = 0; i < s.Length; ++i)
                 {
@@ -31,7 +31,7 @@ namespace PracticeQuestionsSharp.Exercises.Dynamic_Programming
                 }
             }
 
-            permutations.AddRange(newPermutations);
+            permutations = newPermutations;
             string newStr = str.Substring(1);
 
             return AddPermutations(permutations, newStr);

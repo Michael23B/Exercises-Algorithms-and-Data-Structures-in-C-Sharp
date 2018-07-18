@@ -445,6 +445,8 @@ namespace PracticeQuestionsSharp
             */
             string stringForPermutations = "abcd";
             var permutations = stringForPermutations.DistinctStringPermutations();
+            Console.WriteLine(permutations.Count);
+
             foreach (var p in permutations) Console.WriteLine(p);
         }
     }
