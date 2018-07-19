@@ -443,11 +443,21 @@ namespace PracticeQuestionsSharp
             Console.WriteLine(MultiplyWithBitShifting.Multiply(-23, 1));
             Console.WriteLine(MultiplyWithBitShifting.Multiply(-15, -3));
             */
-            string stringForPermutations = "abcd";
-            var permutations = stringForPermutations.DistinctStringPermutations();
+            Dictionary<string, int> permCountMap = new Dictionary<string, int>();
+            string stringForPermutations = "aabbcc";
+            var permutations = stringForPermutations.NonDistinctStringPermutations();
             Console.WriteLine(permutations.Count);
+            permutations.Sort();
+            foreach (var p in permutations)
+            {
+                if (!permCountMap.TryAdd(p, 0)) permCountMap[p]++;
+                Console.WriteLine(p);
+            }
 
-            foreach (var p in permutations) Console.WriteLine(p);
+            var duplicates = permCountMap.Where(kvp => kvp.Value > 0).ToList();
+
+            Console.WriteLine(duplicates.Count);
+            foreach (var d in duplicates) Console.WriteLine(d);
         }
     }
 }
