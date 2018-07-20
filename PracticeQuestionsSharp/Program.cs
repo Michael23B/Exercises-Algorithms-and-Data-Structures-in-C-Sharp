@@ -444,7 +444,7 @@ namespace PracticeQuestionsSharp
             Console.WriteLine(MultiplyWithBitShifting.Multiply(-15, -3));
             */
             Dictionary<string, int> permCountMap = new Dictionary<string, int>();
-            string stringForPermutations = "aabbcc";
+            string stringForPermutations = "aaddac";
             var permutations = stringForPermutations.NonDistinctStringPermutations();
             Console.WriteLine(permutations.Count);
             permutations.Sort();
