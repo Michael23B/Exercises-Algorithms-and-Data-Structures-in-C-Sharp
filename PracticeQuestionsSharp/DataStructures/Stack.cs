@@ -35,10 +35,22 @@ namespace PracticeQuestionsSharp.DataStructures
             return list.Tail.Data;
         }
 
+        //Poor implementation of this since default(T) could be a useful value for some types (int, char).
+        // As long as you aren't using those default values however, it does the job.
+        public T TryPeek()
+        {
+            return IsEmpty ? default(T) : list.Tail.Data;
+        }
+
         public void Clear()
         {
             list.Clear();
             Count = 0;
+        }
+
+        public void Print(bool reverse = false)
+        {
+            list.Print(reverse);
         }
 
         public bool IsEmpty => Count == 0;

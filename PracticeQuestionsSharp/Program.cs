@@ -442,7 +442,7 @@ namespace PracticeQuestionsSharp
             Console.WriteLine(MultiplyWithBitShifting.Multiply(-100, 10));
             Console.WriteLine(MultiplyWithBitShifting.Multiply(-23, 1));
             Console.WriteLine(MultiplyWithBitShifting.Multiply(-15, -3));
-            */
+            
             Dictionary<string, int> permCountMap = new Dictionary<string, int>();
             string stringForPermutations = "aaddac";
             var permutations = stringForPermutations.NonDistinctStringPermutations();
@@ -458,6 +458,8 @@ namespace PracticeQuestionsSharp
 
             Console.WriteLine(duplicates.Count);
             foreach (var d in duplicates) Console.WriteLine(d);
+            */
+            TowersOfHanoi.TowersOfHanoiRecursive(8);
         }
     }
 }
