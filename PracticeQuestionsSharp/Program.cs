@@ -458,8 +458,12 @@ namespace PracticeQuestionsSharp
 
             Console.WriteLine(duplicates.Count);
             foreach (var d in duplicates) Console.WriteLine(d);
-            */
+            
             TowersOfHanoi.TowersOfHanoiRecursive(8);
+            */
+            var parenPerms = ParenthesesPermutations.ParenthesesPermutationsFor(5);
+
+            foreach (string s in parenPerms) Console.WriteLine(s);
         }
     }
 }
