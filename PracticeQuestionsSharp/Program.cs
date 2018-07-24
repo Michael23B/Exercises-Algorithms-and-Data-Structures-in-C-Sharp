@@ -464,13 +464,46 @@ namespace PracticeQuestionsSharp
             var parenPerms = ParenthesesPermutations.ParenthesesPermutationsFor(5);
 
             foreach (string s in parenPerms) Console.WriteLine(s);
-            */
+            
             var coinPerms = Coins.RepresentNCents(50);
 
             foreach (List<int> coins in coinPerms)
             {
                 Console.Write('[');
                 foreach (int c in coins) Console.Write($"{c},");
+                Console.Write("]\n");
+            }
+            */
+            int[,] canvas =
+            {
+                {1, 1, 1, 2, 2, 1, 2, 2, 2},
+                {1, 1, 1, 2, 2, 2, 2, 2, 2},
+                {1, 1, 1, 2, 6, 6, 6, 4, 5},
+                {1, 1, 1, 2, 2, 1, 2, 2, 2}
+            };
+
+            var canvas2 = (int[,])canvas.Clone();
+            canvas2.FillColour(2, 3, 5);
+
+            Console.WriteLine("Original:");
+            for (int i = 0; i < canvas.GetLength(0); ++i)
+            {
+                Console.Write('[');
+                for (int j = 0; j < canvas.GetLength(1); ++j)
+                {
+                    Console.Write($"{canvas[i, j]},");
+                }
+                Console.Write("]\n");
+            }
+
+            Console.WriteLine("Painted:");
+            for (int i = 0; i < canvas2.GetLength(0); ++i)
+            {
+                Console.Write('[');
+                for (int j = 0; j < canvas2.GetLength(1); ++j)
+                {
+                    Console.Write($"{canvas2[i,j]},");
+                }
                 Console.Write("]\n");
             }
         }
