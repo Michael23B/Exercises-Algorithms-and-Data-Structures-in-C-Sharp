@@ -11,6 +11,7 @@ using PracticeQuestionsSharp.Exercises.Bits;
 using PracticeQuestionsSharp.Exercises.Dynamic_Programming;
 using PracticeQuestionsSharp.Exercises.Linked_List;
 using PracticeQuestionsSharp.Exercises.Numbers;
+using PracticeQuestionsSharp.Exercises.Searching_and_Sorting;
 using PracticeQuestionsSharp.Exercises.Stack;
 using PracticeQuestionsSharp.Exercises.Strings;
 using PracticeQuestionsSharp.Helper;
@@ -473,7 +474,7 @@ namespace PracticeQuestionsSharp
                 foreach (int c in coins) Console.Write($"{c},");
                 Console.Write("]\n");
             }
-            */
+            
             int[,] canvas =
             {
                 {1, 1, 1, 2, 2, 1, 2, 2, 2},
@@ -506,6 +507,13 @@ namespace PracticeQuestionsSharp
                 }
                 Console.Write("]\n");
             }
+            */
+            int?[] a = {1, 3, 5, 6, 7, null, null, null, null};
+            int?[] b = {2, 4, 9, 10};
+
+            a.MergeSortedArrays(b);
+
+            foreach (int? i in a) Console.Write($"{i},");
         }
     }
 }
