@@ -507,13 +507,19 @@ namespace PracticeQuestionsSharp
                 }
                 Console.Write("]\n");
             }
-            */
+            
             int?[] a = {1, 3, 5, 6, 7, null, null, null, null};
             int?[] b = {2, 4, 9, 10};
 
             a.MergeSortedArrays(b);
 
             foreach (int? i in a) Console.Write($"{i},");
+            */
+            int[] swapNumbers = {1, 2, 3, 4, 5};
+
+            SwapNumbersInPlace.SwapNumbers(swapNumbers, 1, 3);
+
+            foreach (int i in swapNumbers) Console.Write(i);
         }
     }
 }
