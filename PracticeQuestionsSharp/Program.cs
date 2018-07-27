@@ -514,12 +514,15 @@ namespace PracticeQuestionsSharp
             a.MergeSortedArrays(b);
 
             foreach (int? i in a) Console.Write($"{i},");
-            */
+            
             int[] swapNumbers = {1, 2, 3, 4, 5};
 
             SwapNumbersInPlace.SwapNumbers(swapNumbers, 1, 3);
 
             foreach (int i in swapNumbers) Console.Write(i);
+            */
+            int[,] ticTacToeBoard = {{0, 0, 2, 0}, {0, 1, 2, 1}, { 1, 0, 2, 1 }, { 1, 0, 2, 1 } };
+            Console.WriteLine(TicTacToeWinner.FindWinner(ticTacToeBoard));
         }
     }
 }
