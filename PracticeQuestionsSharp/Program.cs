@@ -520,9 +520,14 @@ namespace PracticeQuestionsSharp
             SwapNumbersInPlace.SwapNumbers(swapNumbers, 1, 3);
 
             foreach (int i in swapNumbers) Console.Write(i);
-            */
+            
             int[,] ticTacToeBoard = {{0, 0, 2, 0}, {0, 1, 2, 1}, { 1, 0, 2, 1 }, { 1, 0, 2, 1 } };
             Console.WriteLine(TicTacToeWinner.FindWinner(ticTacToeBoard));
+            */
+            int[] differenceA = {3, 152, 1, 26, 2};
+            int[] differenceB = {10, 222, 13, -51};
+
+            Console.WriteLine(SmallestDifference.FindSmallestDif(differenceA, differenceB));
         }
     }
 }
