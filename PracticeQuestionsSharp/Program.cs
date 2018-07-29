@@ -523,11 +523,14 @@ namespace PracticeQuestionsSharp
             
             int[,] ticTacToeBoard = {{0, 0, 2, 0}, {0, 1, 2, 1}, { 1, 0, 2, 1 }, { 1, 0, 2, 1 } };
             Console.WriteLine(TicTacToeWinner.FindWinner(ticTacToeBoard));
-            */
+            
             int[] differenceA = {3, 152, 1, 26, 2};
             int[] differenceB = {10, 222, 13, -51};
 
             Console.WriteLine(SmallestDifference.FindSmallestDif(differenceA, differenceB));
+            */
+            Console.WriteLine(-3.Multiply(25));
+            Console.WriteLine(-3.Subtract(25));
         }
     }
 }
