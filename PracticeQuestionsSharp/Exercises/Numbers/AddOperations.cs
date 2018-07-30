@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Xml.Schema;
 
 namespace PracticeQuestionsSharp.Exercises.Numbers
 {
@@ -33,16 +34,43 @@ namespace PracticeQuestionsSharp.Exercises.Numbers
 
         public static int Subtract(this int a, int b)
         {
-            return a + ChangeSign(b);
+            return a + b.ChangeSign();
         }
 
         public static int Divide(this int a, int b)
         {
-            throw new NotImplementedException();
+            int total = 0;
+            int i = 0;
+            int sign = 1;
+
+            if (a < 0 && b < 0)
+            {
+                a = ChangeSign(a);
+                b = ChangeSign(b);
+            }
+            else if (a < 0)
+            {
+                a = a.ChangeSign();
+                sign = -1;
+            }
+            else if (b < 0)
+            {
+                b = b.ChangeSign();
+                sign = -1;
+            }
+
+            while (total < a)
+            {
+                total += b;
+                i += sign;
+            }
+
+            if (total > a) i += sign < 0 ?  1 : -1;
+
+            return i;
         }
 
         //Assuming we can't use -(number) but we can use -1.
-        //this broken
         private static int ChangeSign(this int a)
         {
             int result = 0;
@@ -55,7 +83,7 @@ namespace PracticeQuestionsSharp.Exercises.Numbers
                 a += sign;
             }
 
-            return result + result;
+            return result;
         }
     }
 }

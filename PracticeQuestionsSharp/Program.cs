@@ -529,8 +529,9 @@ namespace PracticeQuestionsSharp
 
             Console.WriteLine(SmallestDifference.FindSmallestDif(differenceA, differenceB));
             */
-            Console.WriteLine(-3.Multiply(25));
-            Console.WriteLine(-3.Subtract(25));
+            Console.WriteLine(10.Multiply(3));
+            Console.WriteLine((-3).Subtract(3));
+            Console.WriteLine((-10).Divide(-3));
         }
     }
 }
