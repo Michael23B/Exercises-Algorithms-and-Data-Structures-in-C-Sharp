@@ -528,10 +528,19 @@ namespace PracticeQuestionsSharp
             int[] differenceB = {10, 222, 13, -51};
 
             Console.WriteLine(SmallestDifference.FindSmallestDif(differenceA, differenceB));
-            */
+            
             Console.WriteLine(10.Multiply(3));
             Console.WriteLine((-3).Subtract(3));
             Console.WriteLine((-10).Divide(-3));
+            */
+            int intToWordInt = 1234567890;
+            Console.WriteLine(intToWordInt.ConvertToWords());
+            intToWordInt = 302854329;
+            Console.WriteLine(intToWordInt.ConvertToWords());
+            intToWordInt = -100000001;
+            Console.WriteLine(intToWordInt.ConvertToWords());
+            intToWordInt = -9807;
+            Console.WriteLine(intToWordInt.ConvertToWords());
         }
     }
 }
