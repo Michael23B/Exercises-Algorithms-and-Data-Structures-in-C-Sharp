@@ -537,7 +537,7 @@ namespace PracticeQuestionsSharp
             Console.WriteLine(intToWordInt.ConvertToWords());
             intToWordInt = 302854329;
             Console.WriteLine(intToWordInt.ConvertToWords());
-            intToWordInt = -100000001;
+            intToWordInt = -100000000;
             Console.WriteLine(intToWordInt.ConvertToWords());
             intToWordInt = -9807;
             Console.WriteLine(intToWordInt.ConvertToWords());
