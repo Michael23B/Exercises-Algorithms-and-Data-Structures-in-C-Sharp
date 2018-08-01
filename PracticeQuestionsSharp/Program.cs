@@ -532,7 +532,7 @@ namespace PracticeQuestionsSharp
             Console.WriteLine(10.Multiply(3));
             Console.WriteLine((-3).Subtract(3));
             Console.WriteLine((-10).Divide(-3));
-            */
+            
             int intToWordInt = 1234567890;
             Console.WriteLine(intToWordInt.ConvertToWords());
             intToWordInt = 302854329;
@@ -541,6 +541,9 @@ namespace PracticeQuestionsSharp
             Console.WriteLine(intToWordInt.ConvertToWords());
             intToWordInt = -9807;
             Console.WriteLine(intToWordInt.ConvertToWords());
+            */
+            var contiguousSequenceList = new List<int> {-3, -4, 10, 22, -6, -20, 30, 0, 1, -3, -2, 2};
+            Console.WriteLine(contiguousSequenceList.LargestContiguousSum());
         }
     }
 }
