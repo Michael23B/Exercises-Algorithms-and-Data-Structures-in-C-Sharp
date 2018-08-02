@@ -16,7 +16,6 @@ namespace PracticeQuestionsSharp.Exercises.Numbers
                 FindLargestSequence(i, 0, collection, max);
             }
 
-
             //Print the sequence and then return the largest sum
             max.MaxSequence.ForEach(i => Console.Write($"{i},"));
             Console.Write('\n');
@@ -26,8 +25,8 @@ namespace PracticeQuestionsSharp.Exercises.Numbers
 
         private static void FindLargestSequence(int startIndex, int count, IList<int> collection, MaxContiguousSum max)
         {
-            //TODO: improvement - check all the previous numbers and see if the add to higher than 0,
-            //TODO: if so the sequence containing them will always be higher than this current sequence so we don't need to check again
+            //If the previous numbers sum to greater than zero, the path using those numbers must be greater than this path
+            if (PrevSumGreaterThanZero(startIndex, collection)) return;
 
             int endIndex = startIndex + count;
             if (endIndex >= collection.Count) return;
@@ -35,6 +34,7 @@ namespace PracticeQuestionsSharp.Exercises.Numbers
             int sum = 0;
             var sequence = new List<int>(count + 1);
 
+            //Get the sum of this sequence and compare it to the current max
             for (int i = startIndex; i <= endIndex; ++i)
             {
                 sum += collection[i];
@@ -47,7 +47,17 @@ namespace PracticeQuestionsSharp.Exercises.Numbers
                 max.MaxSequence = sequence;
             }
 
+            //Recurse with the current starting point and sequence length + 1
             FindLargestSequence(startIndex, count + 1, collection, max);
+        }
+
+        private static bool PrevSumGreaterThanZero(int startIndex, IList<int> collection)
+        {
+            int sum = 0;
+            for (int i = 0; i < startIndex; ++i)
+                sum += collection[i];
+
+            return sum > 0;
         }
 
         //Maintain access to max throughout recursed method
