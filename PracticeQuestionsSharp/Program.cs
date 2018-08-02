@@ -541,9 +541,11 @@ namespace PracticeQuestionsSharp
             Console.WriteLine(intToWordInt.ConvertToWords());
             intToWordInt = -9807;
             Console.WriteLine(intToWordInt.ConvertToWords());
-            */
+            
             var contiguousSequenceList = new List<int> {-3, -4, 10, 22, -6, -20, 30, 0, 1, -3, -2, 2};
             Console.WriteLine(contiguousSequenceList.LargestContiguousSum());
+            */
+            CreateReadMe.CreateReadMeFile();
         }
     }
 }
