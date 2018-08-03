@@ -5,7 +5,7 @@ namespace PracticeQuestionsSharp.Exercises.Linked_List
 {
     //Partition a linked list around an element such that all elements less than the partition value
     //come before it and all elements greater come after it. The order of the elements doesn't matter.
-    public static class LinkedListPartition
+    public static class Partition
     {
         //Partition around an element using enumeration
         //O(n) time. At worst we iterate through list once and then post once which may be as large as list.

@@ -6,7 +6,7 @@ namespace PracticeQuestionsSharp.Exercises.Binary_Tree
     //Find whether a binary tree is a subtree of another binary tree.
     //This implementation defines subtree as sharing the same data for each node
     //and the same children for each node (including null children)
-    public static class BinaryTreeIsSubtree
+    public static class IsSubtree
     {
         public static bool IsSubtreeOf<T>(this BinaryTreeNodeWithParent<T> subtreeRoot, BinaryTreeNodeWithParent<T> treeRoot) where T : IComparable<T>
         {

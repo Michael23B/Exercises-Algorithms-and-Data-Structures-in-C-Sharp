@@ -4,7 +4,7 @@ using PracticeQuestionsSharp.DataStructures;
 namespace PracticeQuestionsSharp.Exercises.Linked_List
 {
     //Given a circular linked list return the point that the loop begins
-    public static class LinkedListLoopDetection
+    public static class LoopDetection
     {
         public static Node<T> DetectLoop<T>(this DataStructures.LinkedList<T> list)
         {

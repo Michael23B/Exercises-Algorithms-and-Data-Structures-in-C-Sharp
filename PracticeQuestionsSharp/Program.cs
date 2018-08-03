@@ -187,7 +187,7 @@ namespace PracticeQuestionsSharp
             intAvl.PrintAll(true);
             Console.WriteLine("-----");
             
-            var randTree = new BinaryTreeRandomElement<int>();
+            var randTree = new RandomElement<int>();
 
             randTree.Insert(2).Insert(4).Insert(1).Insert(6).Insert(3).Insert(0).Insert(5);
 
@@ -215,12 +215,12 @@ namespace PracticeQuestionsSharp
             while (currNode != null)
             {
                 Console.WriteLine(currNode.Data);
-                currNode = currNode.Successor();
+                currNode = currNode.GetSuccessor();
             }
 
             Console.WriteLine(generatedIntSubTree.IsSubtreeOf(generatedIntTree));
 
-            var pathsWithSum = generatedIntTree.PathsWithSum(9);
+            var pathsWithSum = generatedIntTree.FindPathsWithSum(9);
 
             if (pathsWithSum != null)
             {

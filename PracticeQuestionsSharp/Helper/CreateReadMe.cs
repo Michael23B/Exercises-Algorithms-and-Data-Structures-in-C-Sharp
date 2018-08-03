@@ -9,14 +9,13 @@ namespace PracticeQuestionsSharp.Helper
     {
         public static void CreateReadMeFile()
         {
-            //Execution path
-            DirectoryInfo dirInfo = new DirectoryInfo(System.Environment.CurrentDirectory);
-            dirInfo = dirInfo.Parent?.Parent?.Parent;
+            //Execution path is ".../bin/debug/netcoreapp2.0/something.exe", so we go up a few levels for the project root
+            DirectoryInfo projectRoot = new DirectoryInfo(Environment.CurrentDirectory).Parent?.Parent?.Parent?.Parent;
+            //If this doesn't work we end up with null because of the .? operators
+            if (projectRoot == null) throw new DirectoryNotFoundException();
 
-            if (dirInfo == null) throw new DirectoryNotFoundException();
-
-            var files = dirInfo.GetFiles("*.cs", SearchOption.AllDirectories);
-            var helperFolder = dirInfo.FullName + "\\Helper";
+            //Get all files ending in .cs
+            var files = projectRoot.GetFiles("*.cs", SearchOption.AllDirectories);
 
             if (files == null || files.Length == 0) throw new FileNotFoundException(); 
 
@@ -28,7 +27,7 @@ namespace PracticeQuestionsSharp.Helper
                 entries.Add(new FileFolderEntry(file.Name, folderName));
             }
 
-            File.WriteAllText(helperFolder + "\\README.md", "test");
+            File.WriteAllText(projectRoot.FullName + "\\README.md", CreateReadmeString(entries));
         }
 
         private static string GetFolderName(string directory)
@@ -44,10 +43,17 @@ namespace PracticeQuestionsSharp.Helper
             return result.ToString();
         }
 
-        //TODO: this
-        private static string CreateReadmeText(FileFolderEntry entries)
+        private static string CreateReadmeString(List<FileFolderEntry> entries)
         {
-            throw new NotImplementedException();
+            var result = new StringBuilder();
+
+            foreach (var entry in entries)
+            {
+                if (entry.Folder == "netcoreapp2.0") continue;  //Skip build files
+                result.Append($"{entry.Folder}/{entry.File}\n");
+            }
+
+            return result.ToString();
         }
 
         private class FileFolderEntry
@@ -57,6 +63,7 @@ namespace PracticeQuestionsSharp.Helper
                 File = file;
                 Folder = folder;
             }
+
             public string File { get; }
             public string Folder { get; }
         }

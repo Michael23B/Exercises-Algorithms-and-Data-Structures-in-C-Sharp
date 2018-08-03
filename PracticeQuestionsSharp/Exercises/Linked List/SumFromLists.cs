@@ -2,7 +2,7 @@
 
 namespace PracticeQuestionsSharp.Exercises.Linked_List
 {
-    public static class LinkedListsSum
+    public static class SumFromLists
     {
         //Two numbers represented by linked lists where each node contains a single digit. 
         //The digits are stored in reverse order.

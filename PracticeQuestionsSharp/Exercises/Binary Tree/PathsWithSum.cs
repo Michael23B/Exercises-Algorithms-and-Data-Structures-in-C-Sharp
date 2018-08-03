@@ -5,9 +5,9 @@ using NodePath = System.Collections.Generic.List<PracticeQuestionsSharp.Exercise
 namespace PracticeQuestionsSharp.Exercises.Binary_Tree
 {
     //Given a binary tree, find all paths (from a node to a leaf) that sum to a given number.
-    public static class BinaryTreePathsWithSum
+    public static class PathsWithSum
     {
-        public static List<NodePath> PathsWithSum(this BinaryTreeNodeWithParent<int> root, int sum)
+        public static List<NodePath> FindPathsWithSum(this BinaryTreeNodeWithParent<int> root, int sum)
         {
             var paths = new List<NodePath>();
             var leaves = new NodePath();

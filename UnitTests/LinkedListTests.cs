@@ -467,7 +467,7 @@ namespace UnitTests
             listRight.Add(4);
 
             //Act
-            var summedLists = LinkedListsSum.SumLists(listLeft, listRight);
+            var summedLists = SumFromLists.SumLists(listLeft, listRight);
 
             //Assert
             //658 + 471 = 1129

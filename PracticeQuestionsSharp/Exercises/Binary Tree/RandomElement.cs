@@ -6,9 +6,9 @@ namespace PracticeQuestionsSharp.Exercises.Binary_Tree
     //Create a Binary Tree class from scratch with Insert, Remove and Find methods.
     //In addition, add a GetRandom() method that returns a random node. All nodes should be equally likely to be chosen.
 
-    public class BinaryTreeRandomElement<T> where T : IComparable
+    public class RandomElement<T> where T : IComparable
     {
-        public BinaryTreeRandomElement<T> Insert(T data)
+        public RandomElement<T> Insert(T data)
         {
             if (data == null) return null;
             if (root == null) { root = new BinaryTreeNodeWithSize<T>(data); }
