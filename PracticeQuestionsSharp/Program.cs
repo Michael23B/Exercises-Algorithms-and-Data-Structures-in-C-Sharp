@@ -545,6 +545,10 @@ namespace PracticeQuestionsSharp
             var contiguousSequenceList = new List<int> {-3, -4, 10, 22, -6, -20, 30, 0, 1, -3, -2, 2};
             Console.WriteLine(contiguousSequenceList.LargestContiguousSum());
             */
+
+
+
+            //Generates README.md in project root
             CreateReadMe.CreateReadMeFile();
         }
     }
