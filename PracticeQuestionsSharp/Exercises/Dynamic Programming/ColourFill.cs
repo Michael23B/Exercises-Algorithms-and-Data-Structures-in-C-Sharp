@@ -1,9 +1,9 @@
 ﻿namespace PracticeQuestionsSharp.Exercises.Dynamic_Programming
 {
     //Implement a colour fill method, like you would see in a paint application.
-    //Fill each tile until you find a tile of a different colour.
     public static class ColourFill
     {
+        //Fill each tile until you find a tile of a different colour.
         public static int[,] FillColour(this int[,] canvas, int y, int x, int fillCol)
         {
             int baseCol = canvas[y, x];

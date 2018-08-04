@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Net;
 
 namespace PracticeQuestionsSharp.DataStructures
 {
+    //Generic implementation of an AVL Tree.
     public class AVLTree<T> where T : IComparable<T>
     {
         public bool Find(T data)

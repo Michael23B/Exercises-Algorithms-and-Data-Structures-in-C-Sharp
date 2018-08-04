@@ -1,6 +1,6 @@
 ﻿namespace PracticeQuestionsSharp.Exercises.Searching_and_Sorting
 {
-    //Given two sorted arrays (A and B) where A has enough space at the end to fit B, merge array B into array A
+    //Given two sorted arrays (A and B) where A has enough space at the end to fit B, merge array B into array A.
     public static class SortedMerge
     {
         //Using nullable ints so we can represent array buffer as null elements

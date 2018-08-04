@@ -4,7 +4,7 @@ namespace PracticeQuestionsSharp.Exercises.Strings
 {
     public static class PalindromePermutation
     {
-        //Determine whether a string is a permutation of a palindrom
+        //Determine whether a string is a permutation of a palindrome.
         public static bool IsPalindromePermutation(string s)
         {
             int singleCharCount = 0;

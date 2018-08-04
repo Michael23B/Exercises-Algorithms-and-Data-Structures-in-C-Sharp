@@ -3,9 +3,12 @@ using System;
 
 namespace PracticeQuestionsSharp.Exercises.Dynamic_Programming
 {
-    public static class TowersOfHanoi
+    //The Tower of Hanoi is a puzzle where you must move a tower from one pole to another. The tower is a stack of pieces.
+    // You may only move one piece at a time, place smaller pieces onto larger pieces and you must take the top piece of a stack to move.
+    // Implement a function to solve this puzzle.
+    public static class TowerOfHanoi
     {
-        public static void TowersOfHanoiRecursive(int height)
+        public static void TowerOfHanoiRecursive(int height)
         {
             var s1 = new Stack<int>();
             var s2 = new Stack<int>();

@@ -2,7 +2,7 @@
 using PracticeQuestionsSharp.DataStructures;
 
 //Implement a stack sorting method using only an additional stack (no other data structures).
-//Methods allowed: Push(), Pop(), Peek(), IsEmpty().
+// Methods allowed: Push(), Pop(), Peek(), IsEmpty().
 
 namespace PracticeQuestionsSharp.Exercises.Stack
 {

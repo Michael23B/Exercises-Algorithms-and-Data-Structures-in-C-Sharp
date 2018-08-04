@@ -3,7 +3,7 @@ using System;
 
 namespace PracticeQuestionsSharp.Exercises.Stack
 {
-    //Stack that can also return the minimum value in constant time
+    //Stack that can also return the minimum value in constant time.
     public class MinStack<T> : Stack<T> where T : IComparable<T>
     {
         public new MinStack<T> Push(T data)

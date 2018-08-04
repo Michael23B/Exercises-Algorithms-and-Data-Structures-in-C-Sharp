@@ -2,7 +2,7 @@
 
 namespace PracticeQuestionsSharp.Exercises.Numbers
 {
-    //Perform multiplication using only bit shift operations, addition and subtraction
+    //Perform multiplication using only bit shift operations, addition and subtraction.
     public static class MultiplyWithBitShifting
     {
         public static int Multiply(int a, int b)

@@ -4,7 +4,7 @@ namespace PracticeQuestionsSharp.Exercises.Dynamic_Programming
 {
     public static class StringPermutations
     {
-        //Compute all permutations of a string of unique characters
+        //Compute all permutations of a string of unique characters.
         public static List<string> DistinctStringPermutations(this string str)
         {
             //Helper.ExtensionMethods.Factorial(str.Length). Could set capacity to this but factorial overflows very quickly so its not that useful.

@@ -4,6 +4,7 @@ using System.Linq;
 
 namespace PracticeQuestionsSharp.DataStructures
 {
+    //Generic implementation of a priority queue using my own queue implementation.
     public class PriorityQueue<T> : Queue<T>
     {
         public PriorityQueue<T> Enqueue(T data, int priority = 1)

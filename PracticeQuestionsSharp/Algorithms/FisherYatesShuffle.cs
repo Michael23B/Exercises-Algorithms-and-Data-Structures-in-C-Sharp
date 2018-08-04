@@ -9,9 +9,10 @@ namespace PracticeQuestionsSharp.Algorithms
             j ← random integer such that 0 ≤ j ≤ i
             exchange a[j] and a[i]
      https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle
-     */
+    */
     public static class FisherYatesShuffle
     {
+        //Implementation of Fishes-Yates shuffle algorithm.
         public static IList<T> Shuffle<T>(this IList<T> arr)
         {
             var rand = new Random();

@@ -1,6 +1,6 @@
 ﻿namespace PracticeQuestionsSharp.Exercises.Searching_and_Sorting
 {
-    //Write a function that determines the winner of a game of Tic Tac Toe
+    //Write a function that determines the winner of a game of Tic Tac Toe.
     public static class TicTacToeWinner
     {
         //Returns 0 for no winner, 1 for X and 2 for O.

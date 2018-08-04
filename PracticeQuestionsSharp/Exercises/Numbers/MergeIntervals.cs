@@ -2,7 +2,7 @@
 using System.Linq;
 
 //Given a collection of intervals, merge all overlapping intervals
-//eg. [[1,4],[4,5]] -> [[1,5]]
+// eg. [[1,4],[4,5]] -> [[1,5]].
 namespace PracticeQuestionsSharp.Exercises.Numbers
 {
     public class Interval

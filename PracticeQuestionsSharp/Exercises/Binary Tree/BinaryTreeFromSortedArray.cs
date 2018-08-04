@@ -4,7 +4,7 @@ namespace PracticeQuestionsSharp.Exercises.Binary_Tree
 {
     public static class BinaryTreeFromSortedArray
     {
-        //Creates a binary tree and returns the root from a sorted array
+        //Creates a binary tree and returns the root from a sorted array.
         public static BinaryTreeNodeWithParent<int> GenerateIntegerTree(int[] sortedArray)
         {
             return AddChildren(null, sortedArray);

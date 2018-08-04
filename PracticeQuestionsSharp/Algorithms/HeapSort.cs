@@ -6,6 +6,7 @@ namespace PracticeQuestionsSharp.Algorithms
 {
     public static class HeapSort
     {
+        //Heap sort generic implementation.
         public static List<T> HeapSortAscending<T>(this IList<T> collection) where T : IComparable<T>
         {
             var minHeap = new MinHeap<T>();

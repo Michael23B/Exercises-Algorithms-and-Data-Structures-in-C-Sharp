@@ -1,9 +1,6 @@
-﻿using System;
-using System.Xml.Schema;
-
-namespace PracticeQuestionsSharp.Exercises.Numbers
+﻿namespace PracticeQuestionsSharp.Exercises.Numbers
 {
-    //Write methods for multiply, subtract and divide (*,-,/) using only the add (+) operator
+    //Write methods for multiply, subtract and divide (*,-,/) using only the add (+) operator.
     public static class AddOperations
     {
         public static int Multiply(this int a, int b)

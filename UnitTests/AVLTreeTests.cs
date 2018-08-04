@@ -4,6 +4,7 @@ using PracticeQuestionsSharp.DataStructures;
 
 namespace UnitTests
 {
+    //Unit tests for AVL Tree.
     [TestClass]
     public class AVLTreeTests
     {

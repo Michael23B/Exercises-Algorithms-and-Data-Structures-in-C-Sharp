@@ -1,6 +1,6 @@
 ﻿namespace PracticeQuestionsSharp.Exercises.Bits
 {
-    //Swap the even and odd bits in an integer using as few instructions as possible
+    //Swap the even and odd bits in an integer using as few instructions as possible.
     public static class PairwiseSwap
     {
         public static int SwapBits(this int i)

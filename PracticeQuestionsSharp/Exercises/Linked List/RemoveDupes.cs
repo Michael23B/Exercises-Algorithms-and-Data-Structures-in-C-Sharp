@@ -3,7 +3,7 @@ using PracticeQuestionsSharp.DataStructures;
 
 namespace PracticeQuestionsSharp.Exercises.Linked_List
 {
-    //Remove duplicates from a linked list
+    //Remove duplicates from a linked list.
     public static class RemoveDupes
     {
         public static int RemoveDuplicates<T>(this DataStructures.LinkedList<T> list)

@@ -1,10 +1,9 @@
 ﻿using System;
-/*
-Queue implementation using my linked list implementation.
-Also copied from stack implementation mostly.
-*/
+
 namespace PracticeQuestionsSharp.DataStructures
 {
+    //Generic implementation of a queue using my linked list implementation.
+    // Code is largely the same as stack implementation.
     public class Queue<T>
     {
         public Queue()

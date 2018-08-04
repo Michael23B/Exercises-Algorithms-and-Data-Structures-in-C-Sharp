@@ -1,7 +1,7 @@
 ﻿namespace PracticeQuestionsSharp.Exercises.Bits
 {
     //Given an int, you can flip exactly one bit from 0 to 1.
-    //Find the longest sequence of 1s you could create
+    // Find the longest sequence of 1s you could create.
     public static class LongestBitSequence
     {
         public static int LongestSequence(this int number)

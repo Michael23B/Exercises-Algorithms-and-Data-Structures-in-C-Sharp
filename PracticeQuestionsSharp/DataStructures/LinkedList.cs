@@ -13,6 +13,8 @@ element manually.
 */
 namespace PracticeQuestionsSharp.DataStructures
 {
+    //Generic implementation of a linked list. Allows access to elements directly as well as passing nodes in to methods manually,
+    // meaning it's unsafe but allows for neat optimizations in certain situations.
     public class LinkedList<T> : IEnumerable<T>
     {
         public Node<T> Head { get; set; }

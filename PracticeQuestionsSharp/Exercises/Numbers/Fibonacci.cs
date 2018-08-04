@@ -1,5 +1,6 @@
 ﻿namespace PracticeQuestionsSharp.Exercises.Numbers
 {
+    //Return the n-th Fibonacci number.
     public static class Fibonacci
     {
         //Recursive

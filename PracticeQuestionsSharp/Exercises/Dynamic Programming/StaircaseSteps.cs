@@ -5,7 +5,7 @@ using Path = System.Collections.Generic.List<int>;
 namespace PracticeQuestionsSharp.Exercises.Dynamic_Programming
 {
     //A child is running up a staircase with n steps and can hop either 1, 2 or 3 steps at a time.
-    //Count how many possible ways the child could run up the steps.
+    // Count how many possible ways the child could run up the steps.
 
     //Recursive - No memoization
     public static class StaircaseSteps

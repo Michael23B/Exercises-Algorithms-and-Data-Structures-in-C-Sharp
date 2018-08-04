@@ -2,7 +2,7 @@
 
 namespace PracticeQuestionsSharp.Exercises.Dynamic_Programming
 {
-    //Return all valid permutations of n pairs of parentheses
+    //Return all valid permutations of n pairs of parentheses.
     public static class ParenthesesPermutations
     {
         public static List<string> ParenthesesPermutationsFor(int n)

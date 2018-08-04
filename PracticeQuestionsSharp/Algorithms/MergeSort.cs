@@ -6,6 +6,8 @@ namespace PracticeQuestionsSharp.Algorithms
 {
     public static class MergeSorting
     {
+        //Merge sort generic implementation.
+
         //We return a list since we want to accept arrays but returning an IList (as a list) will crash when assigning to an array
         public static List<T> MergeSort<T>(this IList<T> collection) where T :  IComparable<T>
         {

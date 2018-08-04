@@ -3,7 +3,7 @@
 namespace PracticeQuestionsSharp.Exercises.Bits
 {
     //Given two 32-bit numbers, N and M, and two bit positions, i and j, insert M into N
-    //starting at bit j and ending at bit i. You may assume there is enough bits for M to fit.
+    // starting at bit j and ending at bit i. You may assume there is enough bits for M to fit.
     public static class Insertion
     {
         public static UInt32 InsertBitInto(this UInt32 M, UInt32 N, int i, int j)

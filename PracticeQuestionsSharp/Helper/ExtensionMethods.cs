@@ -3,6 +3,7 @@ using System.Linq;
 
 namespace PracticeQuestionsSharp.Helper
 {
+    //A couple of extension methods I've used throughout the project.
     public static class ExtensionMethods
     {
         public static string SortString(this string s)

@@ -5,6 +5,7 @@ using PracticeQuestionsSharp.Exercises.Stack;
 
 namespace UnitTests
 {
+    //Unit tests for stack.
     [TestClass]
     public class StackTests
     {

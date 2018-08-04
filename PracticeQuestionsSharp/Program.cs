@@ -16,7 +16,7 @@ using PracticeQuestionsSharp.Exercises.Stack;
 using PracticeQuestionsSharp.Exercises.Strings;
 using PracticeQuestionsSharp.Helper;
 
-//This file is just for testing solutions
+//This file is just for testing solutions.
 
 namespace PracticeQuestionsSharp
 {
@@ -29,8 +29,8 @@ namespace PracticeQuestionsSharp
             int[] array = new int[10000];
             for (int i = 0; i < array.Length; ++i) array[i] = i;
 
-            Profiler.ProfileAndExecute(() => Kdif.FindKDifferencePairs1(array, 10));
-            Profiler.ProfileAndExecute(() => Kdif.FindKDifferencePairs2(array, 10));
+            Profiler.ProfileAndExecute(() => KDifference.FindKDifferencePairs1(array, 10));
+            Profiler.ProfileAndExecute(() => KDifference.FindKDifferencePairs2(array, 10));
 
             //Primes
             Profiler.ProfileAndExecute(() => Prime.PrimesToN1(200000));
@@ -460,7 +460,7 @@ namespace PracticeQuestionsSharp
             Console.WriteLine(duplicates.Count);
             foreach (var d in duplicates) Console.WriteLine(d);
             
-            TowersOfHanoi.TowersOfHanoiRecursive(8);
+            TowerOfHanoi.TowerOfHanoiRecursive(8);
             
             var parenPerms = ParenthesesPermutations.ParenthesesPermutationsFor(5);
 
@@ -545,8 +545,6 @@ namespace PracticeQuestionsSharp
             var contiguousSequenceList = new List<int> {-3, -4, 10, 22, -6, -20, 30, 0, 1, -3, -2, 2};
             Console.WriteLine(contiguousSequenceList.LargestContiguousSum());
             */
-
-
 
             //Generates README.md in project root
             CreateReadMe.CreateReadMeFile();

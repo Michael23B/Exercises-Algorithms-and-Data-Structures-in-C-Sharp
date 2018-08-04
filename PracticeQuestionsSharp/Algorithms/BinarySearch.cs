@@ -5,7 +5,8 @@ namespace PracticeQuestionsSharp.Algorithms
 {
     public static class BinarySearch
     {
-        public static bool Search<T>(this IList<T> collection, T data) where T : IComparable
+        //Generic implementation of a binary search algorithm.
+        public static int Search<T>(this IList<T> collection, T data) where T : IComparable
         {
             int max = collection.Count - 1;
             int min = 0;
@@ -24,11 +25,11 @@ namespace PracticeQuestionsSharp.Algorithms
                         max = mid - 1;
                         break;
                     case 0:
-                        return true;
+                        return mid;
                 }
             }
 
-            return false;
+            return -1;
         }
     }
 }

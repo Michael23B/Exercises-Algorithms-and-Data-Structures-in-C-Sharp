@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace PracticeQuestionsSharp.Exercises.Numbers
 {
-    //Print all primes to n
+    //Print all primes to n.
     public static class Prime
     {
         //Brute force

@@ -5,7 +5,7 @@ namespace PracticeQuestionsSharp.Algorithms
 {
     public static class DepthFirstSearch
     {
-        //Iterative depth-first search that returns the node with the target data
+        //Iterative depth-first search that returns the node with the target data.
         public static GraphNode<T> DFS<T>(this SimpleGraph<T> graph, T target)
         {
             if (graph == null || graph.Nodes.Count == 0) return null;

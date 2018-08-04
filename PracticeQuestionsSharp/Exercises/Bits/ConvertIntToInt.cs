@@ -1,6 +1,6 @@
 ﻿namespace PracticeQuestionsSharp.Exercises.Bits
 {
-    //Write a function to determine the number of bits you would need to flip to convert int A to int B
+    //Write a function to determine the number of bits you would need to flip to convert int A to int B.
     public static class ConvertIntToInt
     {
         public static int CountFlipsToConvertTo(this int a, int b)

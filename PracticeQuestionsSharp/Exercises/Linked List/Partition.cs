@@ -4,7 +4,7 @@ using PracticeQuestionsSharp.DataStructures;
 namespace PracticeQuestionsSharp.Exercises.Linked_List
 {
     //Partition a linked list around an element such that all elements less than the partition value
-    //come before it and all elements greater come after it. The order of the elements doesn't matter.
+    // come before it and all elements greater come after it. The order of the elements doesn't matter.
     public static class Partition
     {
         //Partition around an element using enumeration

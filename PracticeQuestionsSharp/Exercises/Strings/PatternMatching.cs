@@ -2,7 +2,7 @@
 {
     public static class PatternMatching
     {
-        //Knuth-Morris-Pratt pattern matching algorithm
+        //Knuth-Morris-Pratt pattern matching algorithm.
         public static int KMPFindIndexOf(this string text, string pattern)
         {
             int[] pmt = GeneratePartialMatchTable(pattern);

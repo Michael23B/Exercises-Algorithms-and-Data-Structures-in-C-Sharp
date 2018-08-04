@@ -4,6 +4,7 @@ using PracticeQuestionsSharp.Exercises.Linked_List;
 
 namespace UnitTests
 {
+    //Unit tests for linked list.
     [TestClass]
     public class LinkedListTests
     {

@@ -3,7 +3,7 @@ using PracticeQuestionsSharp.Helper;
 
 namespace PracticeQuestionsSharp.Exercises.Strings
 {
-    //Check if a string is made of distinct characters
+    //Check if a string is made of distinct characters.
     public static class UniqueChars
     {
         public static bool IsUnique(string s)

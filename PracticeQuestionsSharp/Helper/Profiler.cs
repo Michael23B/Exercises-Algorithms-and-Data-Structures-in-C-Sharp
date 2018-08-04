@@ -10,8 +10,8 @@ namespace PracticeQuestionsSharp.Helper
             return method();
         }
 
-        //Accepts a function and logs the execution time
-        //Usage: Profiler.ProfileAndExecute(() => yourMethod(args), repeat?, name?);
+        //Accepts a function and logs the execution time.
+        // Usage: Profiler.ProfileAndExecute(() => yourMethod(args), repeat?, name?);
         public static T ProfileAndExecute<T>(Func<T> method, int repeat = 1, string name = "")
         {
             T result = default(T);

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 
 namespace PracticeQuestionsSharp.DataStructures
 {
+    //Simple graph implementation for use in some exercises. Has links to nodes and thats about it.
     public class SimpleGraph<T>
     {
         public SimpleGraph()

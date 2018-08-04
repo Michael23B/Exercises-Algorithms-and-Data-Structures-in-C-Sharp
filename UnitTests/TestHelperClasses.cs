@@ -2,6 +2,7 @@
 
 namespace UnitTests
 {
+    //Dummy classes used during unit testing.
     class DummyClass
     {
         public DummyClass()

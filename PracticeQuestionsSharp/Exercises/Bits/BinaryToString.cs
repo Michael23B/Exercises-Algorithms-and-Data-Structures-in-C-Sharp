@@ -4,7 +4,7 @@ using System.Text;
 namespace PracticeQuestionsSharp.Exercises.Bits
 {
     //Given a real number between 0 and 1 that is passed in as a double, 
-    //print the binary representation. If it cannot be represented in 32 characters, print "ERROR."
+    //print the binary representation. If it cannot be represented in 32 characters, print "ERROR.".
     public static class BinaryToString
     {
         public static string DoubleToBinaryString(this double d)

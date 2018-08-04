@@ -1,11 +1,11 @@
 ﻿using System;
 /*
-Stack implementation using my linked list implementation.
 We can implement our own (faster) count rather than LinkedList.Count() 
 because we don't allow access to the list directly.
 */
 namespace PracticeQuestionsSharp.DataStructures
 {
+    //Stack implementation using my linked list.
     public class Stack<T>
     {
         public Stack()

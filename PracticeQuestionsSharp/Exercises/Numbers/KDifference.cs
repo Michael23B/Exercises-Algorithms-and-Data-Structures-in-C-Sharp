@@ -3,8 +3,8 @@ using System.Collections.Generic;
 
 namespace PracticeQuestionsSharp.Exercises.Numbers
 {
-    //Given an array of n distinct numbers, find all pairs that have a difference of k
-    public static class Kdif
+    //Given an array of n distinct numbers, find all pairs that have a difference of k.
+    public static class KDifference
     {
         //Brute force solution
         public static int FindKDifferencePairs1(int[] arr, int k)
