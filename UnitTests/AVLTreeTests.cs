@@ -11,14 +11,9 @@ namespace UnitTests
         [TestMethod]
         public void CanCreateNewTree()
         {
-            //Arange
             var treeVal = new AVLTree<int>();
             var treeRef = new AVLTree<DummyComparableClass>();
 
-            //Act
-
-
-            //Assert
             Assert.IsNotNull(treeVal);
             Assert.IsNotNull(treeRef);
         }
@@ -26,13 +21,10 @@ namespace UnitTests
         [TestMethod]
         public void CanInsert()
         {
-            //Arange
             var tree = new AVLTree<int>();
 
-            //Act
             tree.Insert(3);
 
-            //Assert
             Assert.AreEqual(true, tree.Find(3));
             Assert.AreEqual(false, tree.IsEmpty);
         }
@@ -40,13 +32,10 @@ namespace UnitTests
         [TestMethod]
         public void FindReturnsCorrectly()
         {
-            //Arange
             var tree = new AVLTree<int>();
 
-            //Act
             tree.Insert(3).Insert(5).Insert(10);
 
-            //Assert
             Assert.AreEqual(true, tree.Find(3));
             Assert.AreEqual(true, tree.Find(5));
             Assert.AreEqual(true, tree.Find(10));
@@ -59,15 +48,12 @@ namespace UnitTests
         [TestMethod]
         public void CanRemoveCorrectItem()
         {
-            //Arange
             var tree = new AVLTree<int>();
 
-            //Act
             tree.Insert(3).Insert(5).Insert(10).Insert(0);
             tree.Remove(5);
             tree.Remove(10);
 
-            //Assert
             Assert.IsFalse(tree.Find(5));
             Assert.IsTrue(tree.Find(3));
             Assert.IsFalse(tree.Find(10));
@@ -77,18 +63,15 @@ namespace UnitTests
         [TestMethod]
         public void TreeIsCorrectlyOrdered()
         {
-            //Arange
             var tree = new AVLTree<int>();
             List<int> orderedList;
             int prev;
 
-            //Act
             tree.Insert(3).Insert(5).Insert(10).Insert(-3).Insert(20)
                 .Insert(120).Insert(13).Insert(55).Insert(6).Insert(105);
 
             orderedList = tree.GetOrderedList();
 
-            //Assert
             prev = orderedList[0];
             foreach (int i in orderedList)
             {
@@ -100,12 +83,10 @@ namespace UnitTests
         [TestMethod]
         public void TreeIsCorrectlyOrderedAfterRemoval()
         {
-            //Arange
             var tree = new AVLTree<int>();
             List<int> orderedList;
             int prev;
 
-            //Act
             tree.Insert(3).Insert(5).Insert(10).Insert(-3).Insert(20)
                 .Insert(120).Insert(13).Insert(55).Insert(6).Insert(105);
 
@@ -116,7 +97,6 @@ namespace UnitTests
 
             orderedList = tree.GetOrderedList();
 
-            //Assert
             prev = orderedList[0];
             foreach (int i in orderedList)
             {
