@@ -31,13 +31,13 @@ The following are the solutions categorized:
 
 
 ## [Binary Tree](/PracticeQuestionsSharp/Exercises/Binary%20Tree/)
-[Binary Tree From Sorted Array](/PracticeQuestionsSharp/Exercises/Binary%20Tree/BinaryTreeFromSortedArray.cs)
-
-`Creates a binary tree and returns the root from a sorted array.`
-
 [Paths With Sum](/PracticeQuestionsSharp/Exercises/Binary%20Tree/PathsWithSum.cs)
 
 `Given a binary tree, find all paths (from a node to a leaf) that sum to a given number.`
+
+[Binary Tree From Sorted Array](/PracticeQuestionsSharp/Exercises/Binary%20Tree/BinaryTreeFromSortedArray.cs)
+
+`Creates a binary tree and returns the root from a sorted array.`
 
 [Random Element](/PracticeQuestionsSharp/Exercises/Binary%20Tree/RandomElement.cs)
 
@@ -91,33 +91,33 @@ The following are the solutions categorized:
 
 `Stack implementation using my linked list.`
 
-[Simple Graph](/PracticeQuestionsSharp/DataStructures/SimpleGraph.cs)
+[Binary Search Tree](/PracticeQuestionsSharp/DataStructures/BinarySearchTree.cs)
 
-`Simple graph implementation for use in some exercises. Has links to nodes and thats about it.`
-
-[Queue](/PracticeQuestionsSharp/DataStructures/Queue.cs)
-
-`Generic implementation of a queue using my linked list implementation. Code is largely the same as stack implementation.`
-
-[Priority Queue](/PracticeQuestionsSharp/DataStructures/PriorityQueue.cs)
-
-`Generic implementation of a priority queue using my own queue implementation.`
-
-[Min Heap](/PracticeQuestionsSharp/DataStructures/MinHeap.cs)
-
-`Array based min-heap.`
+`Generic implementation of a Binary Search Tree.`
 
 [Linked List](/PracticeQuestionsSharp/DataStructures/LinkedList.cs)
 
 `Generic implementation of a linked list. Allows access to elements directly as well as passing nodes in to methods manually, meaning it's unsafe but allows for neat optimizations in certain situations.`
 
-[Binary Search Tree](/PracticeQuestionsSharp/DataStructures/BinarySearchTree.cs)
+[Min Heap](/PracticeQuestionsSharp/DataStructures/MinHeap.cs)
 
-`Generic implementation of a Binary Search Tree.`
+`Array based min-heap.`
 
 [AVL Tree](/PracticeQuestionsSharp/DataStructures/AVLTree.cs)
 
 `Generic implementation of an AVL Tree.`
+
+[Queue](/PracticeQuestionsSharp/DataStructures/Queue.cs)
+
+`Generic implementation of a queue using my linked list implementation. Code is largely the same as stack implementation.`
+
+[Simple Graph](/PracticeQuestionsSharp/DataStructures/SimpleGraph.cs)
+
+`Simple graph implementation for use in some exercises. Has links to nodes and thats about it.`
+
+[Priority Queue](/PracticeQuestionsSharp/DataStructures/PriorityQueue.cs)
+
+`Generic implementation of a priority queue using my own queue implementation.`
 
 
 ## [Dynamic Programming](/PracticeQuestionsSharp/Exercises/Dynamic%20Programming/)
@@ -125,44 +125,40 @@ The following are the solutions categorized:
 
 `Compute all permutations of a string of unique characters.`
 
-[Staircase Steps](/PracticeQuestionsSharp/Exercises/Dynamic%20Programming/StaircaseSteps.cs)
+[Coins](/PracticeQuestionsSharp/Exercises/Dynamic%20Programming/Coins.cs)
 
-`A child is running up a staircase with n steps and can hop either 1, 2 or 3 steps at a time. Count how many possible ways the child could run up the steps.`
-
-[Power Set](/PracticeQuestionsSharp/Exercises/Dynamic%20Programming/PowerSet.cs)
-
-`The power set of any set S is the set of all subsets of S, including the empty set and S itself.`
-
-[Path Through Grid](/PracticeQuestionsSharp/Exercises/Dynamic%20Programming/PathThroughGrid.cs)
-
-`Given a grid, find a path from the top left to the bottom right using only right and down movements. Some squares are off limits and the path cannot contain them.`
-
-[Tower Of Hanoi](/PracticeQuestionsSharp/Exercises/Dynamic%20Programming/TowerOfHanoi.cs)
-
-`The Tower of Hanoi is a puzzle where you must move a tower from one pole to another. The tower is a stack of pieces. You may only move one piece at a time, place smaller pieces onto larger pieces and you must take the top piece of a stack to move. Implement a function to solve this puzzle.`
-
-[Magic Index](/PracticeQuestionsSharp/Exercises/Dynamic%20Programming/MagicIndex.cs)
-
-`A magic index in a given array A[0...n-1] is defined to be an index such that A[i] == i. Given a sorted array of distinct integers, write a method to find a magic index, if one exists, in array A.`
+`Given an infinite number of coins in denominations: 25c, 10c, 5c and 1c, find all permutations of coins to represent n cents.`
 
 [Colour Fill](/PracticeQuestionsSharp/Exercises/Dynamic%20Programming/ColourFill.cs)
 
 `Implement a colour fill method, like you would see in a paint application.`
 
-[Coins](/PracticeQuestionsSharp/Exercises/Dynamic%20Programming/Coins.cs)
+[Magic Index](/PracticeQuestionsSharp/Exercises/Dynamic%20Programming/MagicIndex.cs)
 
-`Given an infinite number of coins in denominations: 25c, 10c, 5c and 1c, find all permutations of coins to represent n cents.`
+`A magic index in a given array A[0...n-1] is defined to be an index such that A[i] == i. Given a sorted array of distinct integers, write a method to find a magic index, if one exists, in array A.`
 
 [Parentheses Permutations](/PracticeQuestionsSharp/Exercises/Dynamic%20Programming/ParenthesesPermutations.cs)
 
 `Return all valid permutations of n pairs of parentheses.`
 
+[Path Through Grid](/PracticeQuestionsSharp/Exercises/Dynamic%20Programming/PathThroughGrid.cs)
+
+`Given a grid, find a path from the top left to the bottom right using only right and down movements. Some squares are off limits and the path cannot contain them.`
+
+[Power Set](/PracticeQuestionsSharp/Exercises/Dynamic%20Programming/PowerSet.cs)
+
+`The power set of any set S is the set of all subsets of S, including the empty set and S itself.`
+
+[Staircase Steps](/PracticeQuestionsSharp/Exercises/Dynamic%20Programming/StaircaseSteps.cs)
+
+`A child is running up a staircase with n steps and can hop either 1, 2 or 3 steps at a time. Count how many possible ways the child could run up the steps.`
+
+[Tower Of Hanoi](/PracticeQuestionsSharp/Exercises/Dynamic%20Programming/TowerOfHanoi.cs)
+
+`The Tower of Hanoi is a puzzle where you must move a tower from one pole to another. The tower is a stack of pieces. You may only move one piece at a time, place smaller pieces onto larger pieces and you must take the top piece of a stack to move. Implement a function to solve this puzzle.`
+
 
 ## [Helper](/PracticeQuestionsSharp/Helper/)
-[Extension Methods](/PracticeQuestionsSharp/Helper/ExtensionMethods.cs)
-
-`A couple of extension methods I've used throughout the project.`
-
 [Profiler](/PracticeQuestionsSharp/Helper/Profiler.cs)
 
 `Accepts a function and logs the execution time. Usage: Profiler.ProfileAndExecute(() => yourMethod(args), repeat?, name?);`
@@ -171,12 +167,12 @@ The following are the solutions categorized:
 
 `Generates a README.md file for this GitHub project. Finds every ".cs" file, fetches a description from the comments and generates a relative link to that file.`
 
+[Extension Methods](/PracticeQuestionsSharp/Helper/ExtensionMethods.cs)
+
+`A couple of extension methods I've used throughout the project.`
+
 
 ## [Linked List](/PracticeQuestionsSharp/Exercises/Linked%20List/)
-[Loop Detection](/PracticeQuestionsSharp/Exercises/Linked%20List/LoopDetection.cs)
-
-`Given a circular linked list return the point that the loop begins.`
-
 [MergeK Sorted Lists](/PracticeQuestionsSharp/Exercises/Linked%20List/MergeKSortedLists.cs)
 
 `Merge k sorted linked lists and return it as one sorted list. Analyze and describe its complexity.`
@@ -193,11 +189,19 @@ The following are the solutions categorized:
 
 `Two numbers represented by linked lists where each node contains a single digit.  The digits are stored in reverse order. eg. 7 1 6 + 5 9 2 = 617 + 295 -> 2 1 9 (912).`
 
+[Loop Detection](/PracticeQuestionsSharp/Exercises/Linked%20List/LoopDetection.cs)
+
+`Given a circular linked list return the point that the loop begins.`
+
 
 ## [Numbers](/PracticeQuestionsSharp/Exercises/Numbers/)
 [Merge Intervals](/PracticeQuestionsSharp/Exercises/Numbers/MergeIntervals.cs)
 
 `Given a collection of intervals, merge all overlapping intervals eg. [[1,4],[4,5]] -> [[1,5]].`
+
+[Most Living People](/PracticeQuestionsSharp/Exercises/Numbers/MostLivingPeople.cs)
+
+`Given a list of people with their birth and death years, compute the year with most people alive.Where int[n][0] = birth year & int[n][1] = death year`
 
 [Multiply With Bit Shifting](/PracticeQuestionsSharp/Exercises/Numbers/MultiplyWithBitShifting.cs)
 

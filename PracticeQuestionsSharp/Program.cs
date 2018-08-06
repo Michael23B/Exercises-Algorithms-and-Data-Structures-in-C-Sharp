@@ -546,6 +546,22 @@ namespace PracticeQuestionsSharp
             Console.WriteLine(contiguousSequenceList.LargestContiguousSum());
             */
 
+            int[][] birthDeathYears = new int[10][]
+            {
+                new [] { 1990, 2001 },
+                new [] { 1993, 2005 },
+                new [] { 1989, 2010 },
+                new [] { 1980, 1995 },
+                new [] { 1988, 1991 },
+                new [] { 1995, 2001 },
+                new [] { 1997, 2020 },
+                new [] { 1991, 2004 },
+                new [] { 2001, 2003 },
+                new [] { 2000, 2012 }
+            };
+
+            MostLivingPeople.GetYearWithMostLivingPeople(birthDeathYears);
+
             //Generates README.md in project root
             CreateReadMe.CreateReadMeFile();
         }
