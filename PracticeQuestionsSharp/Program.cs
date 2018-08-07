@@ -544,8 +544,7 @@ namespace PracticeQuestionsSharp
             
             var contiguousSequenceList = new List<int> {-3, -4, 10, 22, -6, -20, 30, 0, 1, -3, -2, 2};
             Console.WriteLine(contiguousSequenceList.LargestContiguousSum());
-            */
-
+            
             int[][] birthDeathYears = new int[10][]
             {
                 new [] { 1990, 2001 },
@@ -561,6 +560,12 @@ namespace PracticeQuestionsSharp
             };
 
             MostLivingPeople.GetYearWithMostLivingPeople(birthDeathYears);
+            */
+            List<int> possibleLengths = DivingBoard.GetPossibleLengths(2, 5, 5);
+            foreach (int i in possibleLengths) Console.Write($"{i},");
+            Console.WriteLine();
+            possibleLengths = DivingBoard.GetPossibleLengths2(2, 5, 5);
+            foreach (int i in possibleLengths) Console.Write($"{i},");
 
             //Generates README.md in project root
             CreateReadMe.CreateReadMeFile();
