@@ -31,13 +31,13 @@ The following are the solutions categorized:
 
 
 ## [Binary Tree](/PracticeQuestionsSharp/Exercises/Binary%20Tree/)
-[Binary Tree From Sorted Array](/PracticeQuestionsSharp/Exercises/Binary%20Tree/BinaryTreeFromSortedArray.cs)
-
-`Creates a binary tree and returns the root from a sorted array.`
-
 [Paths With Sum](/PracticeQuestionsSharp/Exercises/Binary%20Tree/PathsWithSum.cs)
 
 `Given a binary tree, find all paths (from a node to a leaf) that sum to a given number.`
+
+[Binary Tree From Sorted Array](/PracticeQuestionsSharp/Exercises/Binary%20Tree/BinaryTreeFromSortedArray.cs)
+
+`Creates a binary tree and returns the root from a sorted array.`
 
 [Random Element](/PracticeQuestionsSharp/Exercises/Binary%20Tree/RandomElement.cs)
 
@@ -121,10 +121,6 @@ The following are the solutions categorized:
 
 
 ## [Dynamic Programming](/PracticeQuestionsSharp/Exercises/Dynamic%20Programming/)
-[String Permutations](/PracticeQuestionsSharp/Exercises/Dynamic%20Programming/StringPermutations.cs)
-
-`Compute all permutations of a string of unique characters.`
-
 [Staircase Steps](/PracticeQuestionsSharp/Exercises/Dynamic%20Programming/StaircaseSteps.cs)
 
 `A child is running up a staircase with n steps and can hop either 1, 2 or 3 steps at a time. Count how many possible ways the child could run up the steps.`
@@ -141,9 +137,9 @@ The following are the solutions categorized:
 
 `Return all valid permutations of n pairs of parentheses.`
 
-[Tower Of Hanoi](/PracticeQuestionsSharp/Exercises/Dynamic%20Programming/TowerOfHanoi.cs)
+[Coins](/PracticeQuestionsSharp/Exercises/Dynamic%20Programming/Coins.cs)
 
-`The Tower of Hanoi is a puzzle where you must move a tower from one pole to another. The tower is a stack of pieces. You may only move one piece at a time, place smaller pieces onto larger pieces and you must take the top piece of a stack to move. Implement a function to solve this puzzle.`
+`Given an infinite number of coins in denominations: 25c, 10c, 5c and 1c, find all permutations of coins to represent n cents.`
 
 [Diving Board](/PracticeQuestionsSharp/Exercises/Dynamic%20Programming/DivingBoard.cs)
 
@@ -153,20 +149,20 @@ The following are the solutions categorized:
 
 `Implement a colour fill method, like you would see in a paint application.`
 
-[Coins](/PracticeQuestionsSharp/Exercises/Dynamic%20Programming/Coins.cs)
+[String Permutations](/PracticeQuestionsSharp/Exercises/Dynamic%20Programming/StringPermutations.cs)
 
-`Given an infinite number of coins in denominations: 25c, 10c, 5c and 1c, find all permutations of coins to represent n cents.`
+`Compute all permutations of a string of unique characters.`
 
 [Magic Index](/PracticeQuestionsSharp/Exercises/Dynamic%20Programming/MagicIndex.cs)
 
 `A magic index in a given array A[0...n-1] is defined to be an index such that A[i] == i. Given a sorted array of distinct integers, write a method to find a magic index, if one exists, in array A.`
 
+[Tower Of Hanoi](/PracticeQuestionsSharp/Exercises/Dynamic%20Programming/TowerOfHanoi.cs)
+
+`The Tower of Hanoi is a puzzle where you must move a tower from one pole to another. The tower is a stack of pieces. You may only move one piece at a time, place smaller pieces onto larger pieces and you must take the top piece of a stack to move. Implement a function to solve this puzzle.`
+
 
 ## [Helper](/PracticeQuestionsSharp/Helper/)
-[Extension Methods](/PracticeQuestionsSharp/Helper/ExtensionMethods.cs)
-
-`A couple of extension methods I've used throughout the project.`
-
 [Profiler](/PracticeQuestionsSharp/Helper/Profiler.cs)
 
 `Accepts a function and logs the execution time. Usage: Profiler.ProfileAndExecute(() => yourMethod(args), repeat?, name?);`
@@ -175,12 +171,12 @@ The following are the solutions categorized:
 
 `Generates a README.md file for this GitHub project. Finds every ".cs" file, fetches a description from the comments and generates a relative link to that file.`
 
+[Extension Methods](/PracticeQuestionsSharp/Helper/ExtensionMethods.cs)
+
+`A couple of extension methods I've used throughout the project.`
+
 
 ## [Linked List](/PracticeQuestionsSharp/Exercises/Linked%20List/)
-[Loop Detection](/PracticeQuestionsSharp/Exercises/Linked%20List/LoopDetection.cs)
-
-`Given a circular linked list return the point that the loop begins.`
-
 [MergeK Sorted Lists](/PracticeQuestionsSharp/Exercises/Linked%20List/MergeKSortedLists.cs)
 
 `Merge k sorted linked lists and return it as one sorted list. Analyze and describe its complexity.`
@@ -196,6 +192,10 @@ The following are the solutions categorized:
 [Sum From Lists](/PracticeQuestionsSharp/Exercises/Linked%20List/SumFromLists.cs)
 
 `Two numbers represented by linked lists where each node contains a single digit.  The digits are stored in reverse order. eg. 7 1 6 + 5 9 2 = 617 + 295 -> 2 1 9 (912).`
+
+[Loop Detection](/PracticeQuestionsSharp/Exercises/Linked%20List/LoopDetection.cs)
+
+`Given a circular linked list return the point that the loop begins.`
 
 
 ## [Numbers](/PracticeQuestionsSharp/Exercises/Numbers/)
@@ -222,6 +222,10 @@ The following are the solutions categorized:
 [Smallest Difference](/PracticeQuestionsSharp/Exercises/Numbers/SmallestDifference.cs)
 
 `Given two arrays of integers, find the smallest difference between any two elements, one from each array.`
+
+[Sum Swap](/PracticeQuestionsSharp/Exercises/Numbers/SumSwap.cs)
+
+`Given two arrays of integers, find a pair of values (one value from each array) that you can swap to `
 
 [Swap Numbers In Place](/PracticeQuestionsSharp/Exercises/Numbers/SwapNumbersInPlace.cs)
 
@@ -277,9 +281,9 @@ The following are the solutions categorized:
 
 
 ## [Strings](/PracticeQuestionsSharp/Exercises/Strings/)
-[Palindrome Permutation](/PracticeQuestionsSharp/Exercises/Strings/PalindromePermutation.cs)
+[Pattern Matching](/PracticeQuestionsSharp/Exercises/Strings/PatternMatching.cs)
 
-`Determine whether a string is a permutation of a palindrome.`
+`Knuth-Morris-Pratt pattern matching algorithm.`
 
 [String To Int](/PracticeQuestionsSharp/Exercises/Strings/StringToInt.cs)
 
@@ -293,9 +297,9 @@ The following are the solutions categorized:
 
 `Given an integer, return the english words to say that number.`
 
-[Pattern Matching](/PracticeQuestionsSharp/Exercises/Strings/PatternMatching.cs)
+[Palindrome Permutation](/PracticeQuestionsSharp/Exercises/Strings/PalindromePermutation.cs)
 
-`Knuth-Morris-Pratt pattern matching algorithm.`
+`Determine whether a string is a permutation of a palindrome.`
 
 
 ## [UnitTests](/UnitTests/)

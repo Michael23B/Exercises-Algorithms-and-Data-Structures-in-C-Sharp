@@ -560,12 +560,15 @@ namespace PracticeQuestionsSharp
             };
 
             MostLivingPeople.GetYearWithMostLivingPeople(birthDeathYears);
-            */
+            
             List<int> possibleLengths = DivingBoard.GetPossibleLengths(2, 5, 5);
             foreach (int i in possibleLengths) Console.Write($"{i},");
             Console.WriteLine();
             possibleLengths = DivingBoard.GetPossibleLengths2(2, 5, 5);
             foreach (int i in possibleLengths) Console.Write($"{i},");
+            */
+            var indexes = SumSwap.FindIndexToSwap(new[] {2, 7, 3}, new[] {4, 4, 10});
+            Console.WriteLine($"First array index: {indexes.FirstArrIndex}, Second array index: {indexes.SecondArrIndex}");
 
             //Generates README.md in project root
             CreateReadMe.CreateReadMeFile();
