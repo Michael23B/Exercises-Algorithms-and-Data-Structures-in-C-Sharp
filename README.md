@@ -1,4 +1,4 @@
-# Exercises, Algorithms and Data Structures in C#
+# Exercises, Algorithms and Data Structures in C# 
 This project is a collection of my solutions to programming questions. Most of the questions either came from [this book](http://www.crackingthecodinginterview.com/) or from various programming websites. Since they're my own solutions, I can't guarantee every single one is correct. I test them to make sure the solution works however there are surely plenty of mistakes that I've missed.
 
 The following are the solutions categorized:
